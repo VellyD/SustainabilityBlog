@@ -1,0 +1,15 @@
+#login-form {
+  text-align: center;
+  padding: 50px;
+  font-size: large;
+  letter-spacing: 3px;
+}
+legend {
+  padding: 20px;
+}
+
+
+
+p .field {
+  padding: auto;
+}
