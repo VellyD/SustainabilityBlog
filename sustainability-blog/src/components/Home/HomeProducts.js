@@ -1,13 +1,13 @@
+import './home.css'
+
 export const HomeProducts = () => {
   return (
     <div class="content">
       <div class="container_12">
         <div class="content">
-          <div class="ic">
-            More Website Templates @ TemplateMonster.com - January 27, 2014!
-          </div>
+          
           <div class="container_12">
-            <div class="grid_12">
+            <div class="grid_12" >
               <h2>Newest products added by our members.</h2>
             </div>
     

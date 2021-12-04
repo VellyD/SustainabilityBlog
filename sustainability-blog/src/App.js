@@ -1,12 +1,12 @@
 import "./App.css";
 import { Routes, Route } from "react-router";
-import { Header } from "./components/Header";
+import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer";
 import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
 
 import { AllProducts } from "./components/Products/AllProducts";
-import { HomeProducts } from "./components/HomeProducts";
+import { HomeProducts } from "./components/Home/HomeProducts";
 
 function App() {
   return (
