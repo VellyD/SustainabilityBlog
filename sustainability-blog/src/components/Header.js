@@ -17,9 +17,9 @@ export const Header = () => {
 						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
 							<ul class="sf-menu">
 								<li class="current"><a href="/">Home</a></li>
-								<li><a href="">Products</a></li>
-								<li><a href="">Login</a></li>
-								<li><a href="">Register</a></li>
+								<li><a href="/products">Products</a></li>
+								<li><a href="/login">Login</a></li>
+								<li><a href="/register">Register</a></li>
 
 								{/* <li><a href="">Welcome, Name </a></li>
 								<li><a href="">My Posts</a></li>
