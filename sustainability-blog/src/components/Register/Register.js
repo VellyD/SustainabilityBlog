@@ -2,7 +2,11 @@ import "./registerFormData.css";
 
 import * as authService from "../../services/authService";
 
+import { useNavigate } from "react-router-dom";
+
 export const Register = () => {
+  let navigate = useNavigate();
+
   let onRegisterHandler = (e) => {
     e.preventDefault();
 
@@ -14,7 +18,12 @@ export const Register = () => {
     if (password === repassword) {
       authService.register({ email, password })
       .then(result=>{
-        console.log(result);
+        localStorage.setItem('token', result.accessToken )
+        navigate('/')
+        // console.log(result.accessToken);
+      })
+      .catch(err =>{
+        console.log(err);
       });
      } 
   };
