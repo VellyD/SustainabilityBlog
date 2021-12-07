@@ -1,12 +1,29 @@
-import './registerFormData.css'
+import "./registerFormData.css";
+
+import * as authService from "../../services/authService";
 
 export const Register = () => {
+  let onRegisterHandler = (e) => {
+    e.preventDefault();
+
+    let formData = new FormData(e.currentTarget);
+    let email = formData.get("email");
+    let password = formData.get("password");
+    let repassword = formData.get("repassword");
+
+    if (password === repassword) {
+      authService.register({ email, password })
+      .then(result=>{
+        console.log(result);
+      });
+     } 
+  };
   return (
     <div className="content">
       <div className="container_12">
         <div className="content">
           <section id="login-page" className="login">
-            <form id="login-form">
+            <form id="login-form" onSubmit={onRegisterHandler}>
               <fieldset>
                 <legend>Register Form</legend>
                 <p className="field">
@@ -42,7 +59,11 @@ export const Register = () => {
                     />
                   </span>
                 </p>
-                <input className="button submit" type="submit" value="Register" />
+                <input
+                  className="button submit"
+                  type="submit"
+                  value="Register"
+                />
               </fieldset>
             </form>
           </section>
