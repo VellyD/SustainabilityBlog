@@ -1,11 +1,22 @@
 import "./formData.css";
-import * as authService from '../../services/authService'
+import * as authService from "../../services/authService";
 
 export const Login = () => {
   let onSubmitHandler = (e) => {
     e.preventDefault();
 
+    let formData = new FormData(e.currentTarget);
+    let name = formData.get("email");
+    let password = formData.get("password");
+console.log(name);
+console.log(password);
 
+    authService
+      .login({ name, password })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className="content">
