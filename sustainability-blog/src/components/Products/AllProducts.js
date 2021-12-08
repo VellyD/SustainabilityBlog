@@ -4,9 +4,6 @@ import { ProductCard } from "./ProductCard.js/ProductCard";
 export const AllProducts = () => {
   return (
     <div class="content">
-      <div class="ic">
-        More Website Templates @ TemplateMonster.com - January 27, 2014!
-      </div>
       <div class="container_12">
         <div class="grid_12">
           <h2>All Products</h2>
@@ -23,8 +20,6 @@ export const AllProducts = () => {
           </div>
           <div class="clear"></div>
           <ProductCard />
-        
-
         </div>
       </div>
     </div>
