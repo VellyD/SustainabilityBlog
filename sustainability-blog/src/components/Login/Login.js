@@ -1,20 +1,22 @@
 import "./formData.css";
 import * as authService from "../../services/authService";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
+  let navigate = useNavigate();
+
   let onSubmitHandler = (e) => {
     e.preventDefault();
 
     let formData = new FormData(e.currentTarget);
-    let name = formData.get("email");
+    let email = formData.get("email");
     let password = formData.get("password");
-console.log(name);
-console.log(password);
 
     authService
-      .login({ name, password })
+      .login({ email, password })
       .then((result) => {
-        console.log(result);
+        localStorage.setItem("token", result.accessToken);
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };
