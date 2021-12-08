@@ -11,8 +11,6 @@ export const login = ({ email, password }) => {
       password: password,
     }),
   }).then((res) => res.json());
-
-
 };
 
 export const register = ({ email, password }) => {
