@@ -1,17 +1,18 @@
+import { Link } from "react-router-dom";
 export const HomeCard = ({
     productCard,
 }) => {
   return (
-    <div class="grid_4">
-      <div class="text1">
-        <a href="#">{productCard.name}</a>
+    <div className="grid_4">
+      <div className="text1">
+        <Link to="">{productCard.name}</Link>
       </div>
       <br />
       {productCard.description}
       <br />
-      <a href="#" class="btn">
+      <Link to="/" className="btn">
         More
-      </a>
+      </Link>
     </div>
   );
 };

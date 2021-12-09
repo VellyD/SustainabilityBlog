@@ -16,20 +16,20 @@ export const AllProducts = () => {
   }, []);
 
   return (
-    <div class="content">
-      <div class="container_12">
-        <div class="grid_12">
+    <div className="content">
+      <div className="container_12">
+        <div className="grid_12">
           <h2>All Products</h2>
         </div>
-        <div class="clear"></div>
-        <div class="gallery">
-          <div class="grid_12">
+        <div className="clear"></div>
+        <div className="gallery">
+          <div className="grid_12">
             <p>
               If you want to add your personal experience, please join our
               community and register your account now. :)
             </p>
           </div>
-          <div class="clear"></div>
+          <div className="clear"></div>
 
           {posts.length > 0 ? (
             posts.map((x) => <ProductCard id={x._id} productData={x} />)

@@ -16,18 +16,18 @@ export const HomeProducts = () => {
   }, []);
 
   return (
-    <div class="content">
-      <div class="container_12">
-        <div class="content">
-          <div class="container_12">
-            <div class="grid_12">
+    <div className="content">
+      <div className="container_12">
+        <div className="content">
+          <div className="container_12">
+            <div className="grid_12">
               <h2>
                 Hello there green friend! Here you can find newest products
                 which have been added my our green heroes.
               </h2>
             </div>
             {newestPosts.map((x) => (
-              <HomeCard id={x._id} productCard={x} />
+              <HomeCard key={x._id} productCard={x} />
             ))}
           </div>
         </div>
