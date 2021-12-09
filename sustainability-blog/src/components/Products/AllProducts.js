@@ -32,7 +32,7 @@ export const AllProducts = () => {
           <div className="clear"></div>
 
           {posts.length > 0 ? (
-            posts.map((x) => <ProductCard id={x._id} productData={x} />)
+            posts.map((x) => <ProductCard key={x._id} productData={x} />)
           ) : (
             <p className="no-pets">No Posts in database!</p>
           )}
