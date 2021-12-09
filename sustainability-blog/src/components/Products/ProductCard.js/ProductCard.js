@@ -1,21 +1,17 @@
-export const ProductCard = ({}) => {
+import { Link } from "react-router-dom";
+import "./productCard.css";
+
+export const ProductCard = ({ productData }) => {
   return (
-    <div class="grid_3">
-      <a href="images/big1.jpg" class="gal">
-        <div class="img_block">
-          <img src="images/page3_img1.jpg" alt="" class="img_inner" />
-          <span class="l"></span>
-          <span class="ll"></span>
-          <span class="r"></span>
-          <span class="rr"></span>
-          <span class="lb"></span>
-          <span class="llb"></span>
-          <span class="rb"></span>
-          <span class="rrb"></span>
+    <div className="grid_3">
+      <div className="img_block">
+        <div className="image_div">
+          <img src={productData.imageUrl} alt="" className="img_inner" />
         </div>
-      </a>
-      <div class="title">
-        <a href="#">Vivamus at magna</a>
+        <div className="title">
+          <p>{productData.name}</p>
+          <Link to="/">Details</Link>
+        </div>
       </div>
     </div>
   );

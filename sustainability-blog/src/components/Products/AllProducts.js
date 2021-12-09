@@ -1,7 +1,20 @@
 import "./allProducts.css";
+
+import { useState, useEffect } from "react";
 import { ProductCard } from "./ProductCard.js/ProductCard";
 
+import * as postService from "../../services/productService";
+
 export const AllProducts = () => {
+  const [posts, setPosts] = useState([]);
+  console.log(posts);
+  useEffect(() => {
+    postService
+      .getAllPosts()
+      .then((res) => setPosts(res))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div class="content">
       <div class="container_12">
@@ -15,11 +28,16 @@ export const AllProducts = () => {
               Hello there green friend! Here you can find all products which
               have been added my our green heroes. If you want to add your
               personal experience, please join our community and register your
-              account.
+              account now. :)
             </p>
           </div>
           <div class="clear"></div>
-          <ProductCard />
+
+          {posts.length > 0 ? (
+            posts.map((x) => <ProductCard id={x._id} productData={x} />)
+          ) : (
+            <p className="no-pets">No Posts in database!</p>
+          )}
         </div>
       </div>
     </div>
