@@ -7,7 +7,7 @@ import * as newestProducts from "../../services/productService";
 export const HomeProducts = () => {
   const [newest, setNewest] = useState([]);
 
-  let newestPosts = newest.slice(0, 3);
+  let newestPosts = newest.slice(-3);
   useEffect(() => {
     newestProducts
       .getAllPosts()
