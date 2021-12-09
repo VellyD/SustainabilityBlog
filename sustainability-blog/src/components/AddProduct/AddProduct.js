@@ -1,12 +1,33 @@
-import './addProduct.css'
+import "./addProduct.css";
+import { useNavigate } from "react-router-dom";
+
+import * as productService from "../../services/productService";
 
 export const AddProduct = () => {
+  const navigate = useNavigate();
+
+  let onCreatePost = (e) => {
+    e.preventDefault();
+
+    let formData = new FormData(e.currentTarget);
+
+    let name = formData.get('name');
+    let description = formData.get('description');
+    let imageUrl = formData.get('imageUrl');
+    let category = formData.get('type');
+
+    productService.createPost({name, description, imageUrl, category})
+    .then(res => navigate('/products'))
+    .catch(err => console.log(err))
+    
+  };
+
   return (
-    <div class="content">
-      <div class="container_12">
-        <div class="gallery">
+    <div className="content">
+      <div className="container_12">
+        <div className="gallery">
           <section id="create-page" className="create">
-            <form id="create-form" action="" method="">
+            <form onSubmit={onCreatePost} id="create-form" action="" method="">
               <fieldset>
                 <legend>Create new post</legend>
                 <p className="field">
