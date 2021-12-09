@@ -4,7 +4,7 @@ import "./productCard.css";
 export const ProductCard = ({ productData }) => {
   return (
     <div className="grid_3">
-      <div className="img_block">
+      <div >
         <div className="image_div">
           <img src={productData.imageUrl} alt="" className="img_inner" />
         </div>
