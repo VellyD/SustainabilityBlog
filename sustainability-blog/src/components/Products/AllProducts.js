@@ -7,7 +7,7 @@ import * as postService from "../../services/productService";
 
 export const AllProducts = () => {
   const [posts, setPosts] = useState([]);
-  console.log(posts);
+
   useEffect(() => {
     postService
       .getAllPosts()
@@ -23,12 +23,10 @@ export const AllProducts = () => {
         </div>
         <div class="clear"></div>
         <div class="gallery">
-          <div class="grid_9">
+          <div class="grid_12">
             <p>
-              Hello there green friend! Here you can find all products which
-              have been added my our green heroes. If you want to add your
-              personal experience, please join our community and register your
-              account now. :)
+              If you want to add your personal experience, please join our
+              community and register your account now. :)
             </p>
           </div>
           <div class="clear"></div>

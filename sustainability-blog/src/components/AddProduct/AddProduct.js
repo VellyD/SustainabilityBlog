@@ -10,7 +10,7 @@ export const AddProduct = () => {
               <fieldset>
                 <legend>Create new post</legend>
                 <p className="field">
-                  <label for="name">Product name</label>
+                  <label htmlFor="name">Product name</label>
                   <span className="input">
                     <input
                       type="text"
@@ -21,7 +21,7 @@ export const AddProduct = () => {
                   </span>
                 </p>
                 <p className="field">
-                  <label for="description">Description</label>
+                  <label htmlFor="description">Description</label>
                   <span className="input">
                     <textarea
                       name="description"
@@ -31,7 +31,7 @@ export const AddProduct = () => {
                   </span>
                 </p>
                 <p className="field">
-                  <label for="image">Image</label>
+                  <label htmlFor="image">Image</label>
                   <span className="input">
                     <input
                       type="text"
@@ -42,7 +42,7 @@ export const AddProduct = () => {
                   </span>
                 </p>
                 <p className="field">
-                  <label for="type">Category</label>
+                  <label htmlFor="type">Category</label>
                   <span className="input">
                     <select id="type" name="type">
                       <option value="dog">Kitchen</option>

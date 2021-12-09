@@ -1,29 +1,34 @@
-import './home.css'
+import "./home.css";
+import { useState, useEffect } from "react";
+
+import { HomeCard } from "./HomeCard/HomeCard";
+import * as newestProducts from "../../services/productService";
 
 export const HomeProducts = () => {
+  const [newest, setNewest] = useState([]);
+
+  let newestPosts = newest.slice(0, 3);
+  useEffect(() => {
+    newestProducts
+      .getAllPosts()
+      .then((res) => setNewest(res))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div class="content">
       <div class="container_12">
         <div class="content">
-          
           <div class="container_12">
-            <div class="grid_12" >
-              <h2>Newest products added by our members.</h2>
+            <div class="grid_12">
+              <h2>
+                Hello there green friend! Here you can find newest products
+                which have been added my our green heroes.
+              </h2>
             </div>
-    
-            <div class="grid_4">
-                <div class="text1">
-                  <a href="#">Landscape Architecture / Design</a>
-                </div>
-                <br />
-                Magna non nunc tristique rhoncus. Aliquam nibh antegestas id
-                dictum a, commodo luctus libero. Praesent faucibus malesuada
-                faucibus. Donec laoreet metus id laoreetyl malesuada.
-                <br />
-                <a href="#" class="btn">
-                  more
-                </a>
-              </div>
+            {newestPosts.map((x) => (
+              <HomeCard id={x._id} productCard={x} />
+            ))}
           </div>
         </div>
       </div>
