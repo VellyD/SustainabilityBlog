@@ -5,7 +5,7 @@ import { Footer } from "./components/Footer";
 import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
 import { AddProduct } from "./components/AddProduct/AddProduct";
-
+import {ProductDetails} from "./components/ProductDetails/ProductDetails"
 
 import { AllProducts } from "./components/Products/AllProducts";
 import { HomeProducts } from "./components/Home/HomeProducts";
@@ -20,6 +20,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/add-products" element={<AddProduct />} />
+        <Route path="/details/:postId" element={<ProductDetails />} />
 
        
       </Routes>

@@ -34,7 +34,7 @@ export const Header = () => {
                   <Link to="/logout">Logout</Link>
                 </li>
                 {/* for not registered users */}
-                {/* <li>
+                <li>
                   <Link to="/login">Login</Link>
                 </li>
                 <li>
@@ -42,7 +42,7 @@ export const Header = () => {
                 </li>
                 <li>
                   <p>Welcome, Name </p>
-                </li> */}
+                </li>
               </ul>
             </nav>
             <div className="clear"></div>

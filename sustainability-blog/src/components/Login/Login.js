@@ -35,7 +35,7 @@ export const Login = () => {
                       type="text"
                       name="email"
                       id="email"
-                      placeholder="Email"
+                      placeholder="email@domai.com"
                     />
                   </span>
                 </p>

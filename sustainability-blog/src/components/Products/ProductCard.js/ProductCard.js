@@ -10,7 +10,7 @@ export const ProductCard = ({ productData }) => {
         </div>
         <div className="title">
           <p>{productData.name}</p>
-          <Link to="/">Details</Link>
+          <Link to="/details/{productData._id}">Details</Link>
         </div>
       </div>
     </div>

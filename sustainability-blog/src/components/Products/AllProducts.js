@@ -7,7 +7,7 @@ import * as postService from "../../services/productService";
 
 export const AllProducts = () => {
   const [posts, setPosts] = useState([]);
-console.log(posts.length);
+
   useEffect(() => {
     postService
       .getAllPosts()
