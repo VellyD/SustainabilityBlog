@@ -23,14 +23,8 @@ export const AllProducts = () => {
         </div>
         <div className="clear"></div>
         <div className="gallery">
-          <div className="grid_12">
-            <p>
-              If you want to add your personal experience, please join our
-              community and register your account now. :)
-            </p>
-          </div>
-          <div className="clear"></div>
-
+         <p>*If you want to add your personal experience, please log in your profile or register for free.</p>
+          
           {posts.length > 0 ? (
             posts.map((x) => <ProductCard key={x._id} productData={x} />)
           ) : (

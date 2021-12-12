@@ -29,7 +29,7 @@ export const AddProduct = () => {
           <section id="create-page" className="create">
             <form onSubmit={onCreatePost} id="create-form" action="" method="">
               <fieldset>
-                <legend>Create new post</legend>
+                <legend>Add new post</legend>
                 <p className="field">
                   <label htmlFor="name">Product name</label>
                   <span className="input">

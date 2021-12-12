@@ -1,9 +1,6 @@
-import './productDetails.css'
+import "./productDetails.css";
 
-export const ProductDetails = ({
-  props
-}) => {
-  console.log(props);
+export const ProductDetails = ({}) => {
   return (
     <section id="details-page" className="details">
       <div className="product-information">
