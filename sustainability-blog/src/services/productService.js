@@ -24,3 +24,11 @@ export const createPost = async (postData, token) => {
 
   return result;
 };
+
+export const getOne = async (id) => {
+  let response = await fetch(`${baseUrl}/eco/${id}`);
+
+  let result = await response.json();
+
+  return result;
+};

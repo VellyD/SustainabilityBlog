@@ -1,7 +1,37 @@
 import "./productDetails.css";
-import { Link } from "react-router-dom";
+import { useEffect } from "react/cjs/react.development";
+import { Link, useParams } from "react-router-dom";
+import { useContext, useState } from "react";
 
-export const ProductDetails = ({}) => {
+import { AuthContext } from "../../contexts/authContext";
+
+import * as productService from '../../services/productService'
+
+
+export const ProductDetails = () => {
+  const { user } = useContext(AuthContext);
+  const [product, setProduct] = useState({});
+  const { productId } = useParams();
+
+  useEffect(async () => {
+    let productResult = await productService.getOne(productId);
+
+    setProduct(productResult);
+  }, []);
+
+  const userButtons = (
+    <div className="edit-del-btn">
+      <>
+        <Link className="button-55" to={`/edit/`}>
+          Edit
+        </Link>
+
+        <Link className="button-55" to={`/delete`}>
+          Delete
+        </Link>
+      </>
+    </div>
+  );
   return (
     <section id="details-page" className="details">
       <div className="product-information">
@@ -17,18 +47,7 @@ export const ProductDetails = ({}) => {
         <p> Detailed description </p>
       </div>
 
-      <div className="edit-del-btn">
-        <>
-
-          <Link className="button-55" to={`/edit/`}>
-            Edit
-          </Link>
-          
-          <Link className="button-55" to={`/delete`} > 
-            Delete
-          </Link>
-        </>
-      </div>
+      {user._id == product._ownerId ? userButtons : ""}
     </section>
   );
 };
