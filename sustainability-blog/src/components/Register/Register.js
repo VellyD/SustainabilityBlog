@@ -18,7 +18,7 @@ export const Register = () => {
     if (password === repassword) {
       authService.register({ email, password })
       .then(result=>{
-        localStorage.setItem('token', result.accessToken )
+        // localStorage.setItem('token', result.accessToken )
         navigate('/')
         // console.log(result.accessToken);
       })

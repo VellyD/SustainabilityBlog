@@ -16,9 +16,9 @@ export const AddProduct = () => {
     let imageUrl = formData.get('imageUrl');
     let category = formData.get('type');
 
-    productService.createPost({name, description, imageUrl, category})
-    .then(res => navigate('/products'))
-    .catch(err => console.log(err))
+    // productService.createPost({name, description, imageUrl, category}) //user.accessToken
+    // .then(res => navigate('/products'))
+    // .catch(err => console.log(err))
     
   };
 

@@ -2,7 +2,7 @@ import "./formData.css";
 import * as authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
 
-export const Login = () => {
+export const Login = ({ login }) => {
   let navigate = useNavigate();
 
   let onSubmitHandler = (e) => {
@@ -15,7 +15,7 @@ export const Login = () => {
     authService
       .login({ email, password })
       .then((result) => {
-        localStorage.setItem("token", result.accessToken);
+        login(result);
         navigate("/");
       })
       .catch((err) => console.log(err));

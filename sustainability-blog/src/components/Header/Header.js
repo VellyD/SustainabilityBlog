@@ -1,7 +1,33 @@
 import "./header.css";
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ email }) => {
+  const userView = (
+    <>
+      <li>
+        <Link to="/add-products">Add Products</Link>
+      </li>
+      {/* <li>
+        <Link to="/my-posts">My Posts</Link>
+      </li> */}
+      <li>
+        <Link to="/logout">Logout</Link>
+      </li>
+      <li>
+        <p>Welcome, {email}</p>
+      </li>
+    </>
+  );
+  const guestView = (
+    <>
+      <li>
+        <Link to="/login">Login</Link>
+      </li>
+      <li>
+        <Link to="/register">Register</Link>
+      </li>
+    </>
+  );
   return (
     <header>
       <div className="container_12">
@@ -23,26 +49,7 @@ export const Header = () => {
                 <li>
                   <Link to="/products">Products</Link>
                 </li>
-
-                <li>
-                  <Link to="/add-products">Add Products</Link>
-                </li>
-                <li>
-                  <Link to="/my-posts">My Posts</Link>
-                </li>
-                <li>
-                  <Link to="/logout">Logout</Link>
-                </li>
-                {/* for not registered users */}
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
-                <li>
-                  <p>Welcome, Name </p>
-                </li>
+                {email ? userView : guestView}
               </ul>
             </nav>
             <div className="clear"></div>

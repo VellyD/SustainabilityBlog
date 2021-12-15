@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3030/jsonstore";
+const baseUrl = "http://localhost:3030/data";
 
 export const getAllPosts = async () => {
   let response = await fetch(`${baseUrl}/eco`);
@@ -10,11 +10,12 @@ export const getAllPosts = async () => {
   return result;
 };
 
-export const createPost = async (postData) => {
+export const createPost = async (postData, token) => {
   let response = await fetch(`${baseUrl}/eco`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
+      "X-authorization" : token,
     },
     body: JSON.stringify(postData),
   });
