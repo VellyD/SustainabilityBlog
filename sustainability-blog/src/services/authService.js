@@ -22,3 +22,11 @@ export const register = ({ email, password }) => {
     body: JSON.stringify({ email, password }),
   }).then((res) => res.json());
 };
+
+export const logout = (accessToken) => {
+  return fetch(`${baseUrl}/users/logout`, {
+      headers: {
+          'X-Authorization': accessToken,
+      }
+  })
+};

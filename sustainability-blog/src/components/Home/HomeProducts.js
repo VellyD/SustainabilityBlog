@@ -8,12 +8,12 @@ export const HomeProducts = () => {
   const [newest, setNewest] = useState([]);
 
   let newestPosts = newest.slice(-3);
-  // useEffect(() => {
-  //   newestProducts
-  //     .getAllPosts()
-  //     .then((res) => setNewest(res))
-  //     .catch((err) => console.log(err));
-  // }, []);
+  useEffect(() => {
+    newestProducts
+      .getAllPosts()
+      .then((res) => setNewest(res))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="content">
@@ -26,9 +26,9 @@ export const HomeProducts = () => {
                 which have been added my our green heroes.
               </h2>
             </div>
-            {/* {newestPosts.map((x) => (
+            {newestPosts.map((x) => (
               <HomeCard key={x._id} productCard={x} />
-            ))} */}
+            ))}
           </div>
         </div>
       </div>

@@ -1,7 +1,10 @@
 import "./header.css";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/authContext";
 
-export const Header = ({ email }) => {
+export const Header = () => {
+  const { user } = useContext(AuthContext);
   const userView = (
     <>
       <li>
@@ -14,7 +17,7 @@ export const Header = ({ email }) => {
         <Link to="/logout">Logout</Link>
       </li>
       <li>
-        <p>Welcome, {email}</p>
+        <p>Welcome, {user.email}</p>
       </li>
     </>
   );
@@ -49,7 +52,7 @@ export const Header = ({ email }) => {
                 <li>
                   <Link to="/products">Products</Link>
                 </li>
-                {email ? userView : guestView}
+                {user.email ? userView : guestView}
               </ul>
             </nav>
             <div className="clear"></div>

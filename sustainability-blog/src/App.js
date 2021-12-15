@@ -27,9 +27,9 @@ function App() {
   const logout = (authData) => {};
 
   return (
-    <AuthContext.Provider>
+    <AuthContext.Provider value={{user, login}}>
       <div className="App">
-        <Header {...user} />
+        <Header email={user.email} />
 
         <Routes>
           <Route path="/" element={<HomeProducts />} />

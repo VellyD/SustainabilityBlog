@@ -1,4 +1,5 @@
 import "./productDetails.css";
+import { Link } from "react-router-dom";
 
 export const ProductDetails = ({}) => {
   return (
@@ -14,6 +15,19 @@ export const ProductDetails = ({}) => {
       <div className="product-description">
         <h3>Description:</h3>
         <p> Detailed description </p>
+      </div>
+
+      <div className="edit-del-btn">
+        <>
+
+          <Link className="button-55" to={`/edit/`}>
+            Edit
+          </Link>
+          
+          <Link className="button-55" to={`/delete`} > 
+            Delete
+          </Link>
+        </>
       </div>
     </section>
   );

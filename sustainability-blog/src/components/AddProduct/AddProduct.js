@@ -1,9 +1,13 @@
 import "./addProduct.css";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+
+import { AuthContext } from "../../contexts/authContext";
 
 import * as productService from "../../services/productService";
 
 export const AddProduct = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   let onCreatePost = (e) => {
@@ -11,15 +15,15 @@ export const AddProduct = () => {
 
     let formData = new FormData(e.currentTarget);
 
-    let name = formData.get('name');
-    let description = formData.get('description');
-    let imageUrl = formData.get('imageUrl');
-    let category = formData.get('type');
+    let name = formData.get("name");
+    let description = formData.get("description");
+    let imageUrl = formData.get("imageUrl");
+    let category = formData.get("type");
 
-    // productService.createPost({name, description, imageUrl, category}) //user.accessToken
-    // .then(res => navigate('/products'))
-    // .catch(err => console.log(err))
-    
+    productService
+      .createPost({ name, description, imageUrl, category }, user.accessToken)
+      .then((res) => navigate("/products"))
+      .catch((err) => console.log(err));
   };
 
   return (
