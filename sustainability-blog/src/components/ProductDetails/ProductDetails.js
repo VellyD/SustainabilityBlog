@@ -11,11 +11,11 @@ import * as productService from '../../services/productService'
 export const ProductDetails = () => {
   const { user } = useContext(AuthContext);
   const [product, setProduct] = useState({});
-  const { productId } = useParams();
+  const { postId } = useParams();
 
   useEffect(async () => {
-    let productResult = await productService.getOne(productId);
-
+    let productResult = await productService.getOne(postId);
+console.log(postId);
     setProduct(productResult);
   }, []);
 

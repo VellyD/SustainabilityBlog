@@ -1,11 +1,12 @@
 import "./registerFormData.css";
-
-import * as authService from "../../services/authService";
-
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/authContext";
+import * as authService from "../../services/authService";
 
 export const Register = () => {
   let navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   let onRegisterHandler = (e) => {
     e.preventDefault();
@@ -16,16 +17,17 @@ export const Register = () => {
     let repassword = formData.get("repassword");
 
     if (password === repassword) {
-      authService.register({ email, password })
-      .then(result=>{
-        // localStorage.setItem('token', result.accessToken )
-        navigate('/')
-        // console.log(result.accessToken);
-      })
-      .catch(err =>{
-        console.log(err);
-      });
-     } 
+      authService
+        .register({ email, password })
+        .then((result) => {
+          login(result);
+          navigate("/");
+        
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
   return (
     <div className="content">
