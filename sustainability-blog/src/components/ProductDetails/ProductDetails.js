@@ -5,8 +5,7 @@ import { useContext, useState } from "react";
 
 import { AuthContext } from "../../contexts/authContext";
 
-import * as productService from '../../services/productService'
-
+import * as productService from "../../services/productService";
 
 export const ProductDetails = () => {
   const { user } = useContext(AuthContext);
@@ -15,7 +14,7 @@ export const ProductDetails = () => {
 
   useEffect(async () => {
     let productResult = await productService.getOne(postId);
-console.log(postId);
+
     setProduct(productResult);
   }, []);
 
@@ -35,16 +34,16 @@ console.log(postId);
   return (
     <section id="details-page" className="details">
       <div className="product-information">
-        <h3>Product name: </h3>
-        <p className="type">Category:</p>
+        <h3>Product name: {product.name} </h3>
+        <p className="type">Category:{product.category}</p>
         <div className="img">
-          <img src="" />
+          <img src={`${product.imageUrl}`} />
         </div>
       </div>
 
       <div className="product-description">
         <h3>Description:</h3>
-        <p> Detailed description </p>
+        <p> {product.description} </p>
       </div>
 
       {user._id == product._ownerId ? userButtons : ""}

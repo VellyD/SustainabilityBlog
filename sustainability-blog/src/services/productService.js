@@ -32,3 +32,4 @@ export const getOne = async (id) => {
 
   return result;
 };
+
