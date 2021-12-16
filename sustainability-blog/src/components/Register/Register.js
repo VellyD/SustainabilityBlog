@@ -13,15 +13,14 @@ export const Register = () => {
 
     let formData = new FormData(e.currentTarget);
     let email = formData.get("email");
-    let nikname = formData.get("nikname");
     let password = formData.get("password");
     let repassword = formData.get("repassword");
 
     if (password === repassword) {
       authService
-        .register({ email, password, nikname })
+        .register({ email, password })
         .then((result) => {
-          login(result, nikname);
+          login(result);
           navigate("/");
         })
         .catch((err) => {
@@ -48,7 +47,7 @@ export const Register = () => {
                     />
                   </span>
                 </p>
-                <p className="field">
+                {/* <p className="field">
                   <label htmlFor="nikname">Nikname </label>
                   <span className="input">
                     <input
@@ -58,7 +57,7 @@ export const Register = () => {
                       placeholder="nikname"
                     />
                   </span>
-                </p>
+                </p> */}
                 <p className="field">
                   <label htmlFor="password">Password </label>
                   <span className="input">

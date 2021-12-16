@@ -18,20 +18,17 @@ function App() {
   const [user, setUser] = useState({
     _id: "",
     email: "",
-    nikname: "",
     accessToken: "",
   });
 
-  const login = (authData, nikname) => {
-    let { _id, email, accessToken } = authData;
-    setUser({ _id, email, accessToken, nikname });
+  const login = (authData) => {
+    setUser(authData);
   };
 
   const logout = () => {
     setUser({
       _id: "",
       email: "",
-      nikname: "",
       accessToken: "",
     });
   };

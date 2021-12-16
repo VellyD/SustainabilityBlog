@@ -17,7 +17,7 @@ export const ProductDetails = () => {
     productService.getOne(postId).then((productResult) => {
       setProduct(productResult);
     });
-  }, []);
+  }, [postId]);
 
   let onDeleteHandler = (e) => {
     e.preventDefault();
@@ -33,7 +33,7 @@ export const ProductDetails = () => {
   const userButtons = (
     <div className="edit-del-btn">
       <>
-        <Link className="button-55" to={`/edit/`}>
+        <Link className="button-55" to="edit">
           Edit
         </Link>
 
@@ -56,7 +56,7 @@ export const ProductDetails = () => {
       <div className="product-description">
         <h3>Details about the product:</h3>
         <p> {product.description} </p>
-        <p>Author:{user.nikname}</p>
+        {/* <p>Author:{user.nikname}</p> */}
       </div>
 
       {user._id == product._ownerId ? userButtons : ""}
