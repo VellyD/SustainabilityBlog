@@ -5,6 +5,8 @@ import { Routes, Route } from "react-router";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer";
 import { Login } from "./components/Login/Login";
+import { Logout } from "./components/Logout/Logout";
+
 import { Register } from "./components/Register/Register";
 import { AddProduct } from "./components/AddProduct/AddProduct";
 import { ProductDetails } from "./components/ProductDetails/ProductDetails";
@@ -24,10 +26,16 @@ function App() {
     setUser(authData);
   };
 
-  const logout = (authData) => {};
+  const logout = () => {
+    setUser({
+      _id: "",
+      email: "",
+      accessToken: "",
+    });
+  };
 
   return (
-    <AuthContext.Provider value={{user, login}}>
+    <AuthContext.Provider value={{ user, login , logout}}>
       <div className="App">
         <Header email={user.email} />
 
@@ -35,6 +43,7 @@ function App() {
           <Route path="/" element={<HomeProducts />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/login" element={<Login login={login} />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/add-products" element={<AddProduct />} />
           <Route path="/details/:postId" element={<ProductDetails />} />
