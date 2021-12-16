@@ -33,3 +33,11 @@ export const getOne = async (id) => {
   return result;
 };
 
+export const removePost = (postId, token) => {
+  return fetch(`${baseUrl}/eco/${postId}`, {
+      method: 'DELETE',
+      headers: {
+          'X-Authorization': token
+      }
+  }).then(res => res.json());
+};

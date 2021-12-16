@@ -1,6 +1,6 @@
 import "./productDetails.css";
 import { useEffect } from "react/cjs/react.development";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 
 import { AuthContext } from "../../contexts/authContext";
@@ -11,12 +11,24 @@ export const ProductDetails = () => {
   const { user } = useContext(AuthContext);
   const [product, setProduct] = useState({});
   const { postId } = useParams();
+  const navigate = useNavigate();
 
-  useEffect(async () => {
-    let productResult = await productService.getOne(postId);
-
-    setProduct(productResult);
+  useEffect(() => {
+    productService.getOne(postId).then((productResult) => {
+      setProduct(productResult);
+    });
   }, []);
+
+  let onDeleteHandler = (e) => {
+    e.preventDefault();
+
+    productService
+      .removePost(postId, user.accessToken)
+      .then((res) => {
+        navigate("/products");
+      })
+      .catch((err) => console.log(err));
+  };
 
   const userButtons = (
     <div className="edit-del-btn">
@@ -25,7 +37,7 @@ export const ProductDetails = () => {
           Edit
         </Link>
 
-        <Link className="button-55" to={`/delete`}>
+        <Link className="button-55" onClick={onDeleteHandler} to={`/delete`}>
           Delete
         </Link>
       </>
@@ -42,8 +54,9 @@ export const ProductDetails = () => {
       </div>
 
       <div className="product-description">
-        <h3>Description:</h3>
+        <h3>Details about the product:</h3>
         <p> {product.description} </p>
+        <p>Author:{user.nikname}</p>
       </div>
 
       {user._id == product._ownerId ? userButtons : ""}

@@ -18,23 +18,26 @@ function App() {
   const [user, setUser] = useState({
     _id: "",
     email: "",
+    nikname: "",
     accessToken: "",
   });
 
-  const login = (authData) => {
-    setUser(authData);
+  const login = (authData, nikname) => {
+    let { _id, email, accessToken } = authData;
+    setUser({ _id, email, accessToken, nikname });
   };
 
   const logout = () => {
     setUser({
       _id: "",
       email: "",
+      nikname: "",
       accessToken: "",
     });
   };
 
   return (
-    <AuthContext.Provider value={{ user, login , logout}}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       <div className="App">
         <Header email={user.email} />
 
