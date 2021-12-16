@@ -49,7 +49,7 @@ export const ProductDetails = () => {
         <h3>Product name: {product.name} </h3>
         <p className="type">Category:{product.category}</p>
         <div className="img">
-          <img src={`${product.imageUrl}`} />
+          <img alt="" src={`${product.imageUrl}`} />
         </div>
       </div>
 
@@ -59,7 +59,7 @@ export const ProductDetails = () => {
         {/* <p>Author:{user.nikname}</p> */}
       </div>
 
-      {user._id == product._ownerId ? userButtons : ""}
+      {user._id === product._ownerId ? userButtons : ""}
     </section>
   );
 };
