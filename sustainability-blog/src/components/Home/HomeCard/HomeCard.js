@@ -10,7 +10,7 @@ export const HomeCard = ({
       <br />
       {productCard.description}
       <br />
-      <Link to="/details/{productCard._id}" className="btn">
+      <Link to={`/details/${productCard._id}`} className="btn">
         More
       </Link>
     </div>

@@ -6,7 +6,6 @@ import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer";
 import { Login } from "./components/Login/Login";
 import { Logout } from "./components/Logout/Logout";
-
 import { Register } from "./components/Register/Register";
 import { AddProduct } from "./components/AddProduct/AddProduct";
 import { ProductDetails } from "./components/ProductDetails/ProductDetails";
