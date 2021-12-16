@@ -70,10 +70,10 @@ export const AddProduct = () => {
                   <label htmlFor="type">Category</label>
                   <span className="input">
                     <select id="type" name="type">
-                      <option value="dog">Kitchen</option>
-                      <option value="cat">Bathroom</option>
-                      <option value="parrot">Self care</option>
-                      <option value="reptile">Swaps</option>
+                      <option value="Kitchen">Kitchen</option>
+                      <option value="Bathroom">Bathroom</option>
+                      <option value="self-care">Self care</option>
+                      <option value="Swaps">Swaps</option>
                       <option value="other">Other</option>
                     </select>
                   </span>
