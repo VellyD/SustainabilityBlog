@@ -15,7 +15,7 @@ export const createPost = async (postData, token) => {
     method: "POST",
     headers: {
       "content-type": "application/json",
-      "X-authorization" : token,
+      "X-authorization": token,
     },
     body: JSON.stringify(postData),
   });
@@ -33,11 +33,15 @@ export const getOne = async (id) => {
   return result;
 };
 
-export const removePost = (postId, token) => {
-  return fetch(`${baseUrl}/eco/${postId}`, {
-      method: 'DELETE',
-      headers: {
-          'X-Authorization': token
-      }
-  }).then(res => res.json());
+export const removePost = async (postId, token) => {
+  let response = await fetch(`${baseUrl}/eco/${postId}`, {
+    method: "DELETE",
+    headers: {
+      "X-Authorization": token,
+    },
+  });
+
+  let result = await response.json();
+
+  return result;
 };

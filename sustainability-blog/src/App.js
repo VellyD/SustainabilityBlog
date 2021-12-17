@@ -15,23 +15,21 @@ import { HomeProducts } from "./components/Home/HomeProducts";
 import { AuthContext } from "./contexts/authContext";
 import {useLocalStorage} from './hooks/authHook';
 
+const initialState = {
+  _id: "",
+  email: "",
+  accessToken: "",
+}
+
 function App() {
-  const [user, setUser] = useLocalStorage('user', {
-    _id: "",
-    email: "",
-    accessToken: "",
-  });
+  const [user, setUser] = useLocalStorage('user', initialState);
 
   const login = (authData) => {
     setUser(authData);
   };
 
   const logout = () => {
-    setUser({
-      _id: "",
-      email: "",
-      accessToken: "",
-    });
+    setUser(initialState);
   };
 
   return (
