@@ -13,9 +13,10 @@ import { AllProducts } from "./components/Products/AllProducts";
 import { HomeProducts } from "./components/Home/HomeProducts";
 
 import { AuthContext } from "./contexts/authContext";
+import {useLocalStorage} from './hooks/authHook';
 
 function App() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useLocalStorage('user', {
     _id: "",
     email: "",
     accessToken: "",
