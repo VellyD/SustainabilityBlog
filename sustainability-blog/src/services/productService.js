@@ -1,13 +1,14 @@
 const baseUrl = "http://localhost:3030/data";
 
-export const getAllPosts = async () => {
-  let response = await fetch(`${baseUrl}/eco`);
-
-  let posts = await response.json();
-
-  let result = Object.values(posts);
-
-  return result;
+export const getAllPosts = () => {
+  return fetch(`${baseUrl}/eco`)
+  .then((res) => {
+    if(res.ok){
+     return res.json()
+    }else{
+      throw res
+    }
+  });
 };
 
 export const createPost = async (postData, token) => {
@@ -46,5 +47,4 @@ export const removePost = async (postId, token) => {
   return result;
 };
 
-
-//ToDo update - edit operation 
+//ToDo update - edit operation

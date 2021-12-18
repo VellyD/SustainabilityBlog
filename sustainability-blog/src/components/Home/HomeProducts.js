@@ -11,8 +11,10 @@ export const HomeProducts = () => {
   useEffect(() => {
     newestProducts
       .getAllPosts()
-      .then((res) => setNewest(res))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setNewest(Object.values(res));
+      })
+      .catch((err) => console.log(err.statusText));
   }, []);
 
   return (
@@ -26,9 +28,11 @@ export const HomeProducts = () => {
                 which have been added my our green heroes.
               </h2>
             </div>
-            {newestPosts.map((x) => (
-              <HomeCard key={x._id} productCard={x} />
-            ))}
+            {newestPosts.length > 0 ? (
+              newestPosts.map((x) => <HomeCard key={x._id} productCard={x} />)
+            ) : (
+              <p className="no-pets">No Posts in database!</p>
+            )}
           </div>
         </div>
       </div>
