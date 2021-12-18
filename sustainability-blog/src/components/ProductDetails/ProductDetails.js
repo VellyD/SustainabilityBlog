@@ -30,9 +30,6 @@ export const ProductDetails = () => {
       .catch((err) => console.log(err));
   };
 
-  let likesClickHandler = ()=>{
-
-  }
   const userButtons = (
     <div className="edit-del-btn">
       <>
@@ -49,7 +46,7 @@ export const ProductDetails = () => {
 
   const guestLikeButton = (
     <div className="edit-del-btn">
-      <Link className="button-55" onClick={likesClickHandler}>
+      <Link className="button-55" to="">
         Like
       </Link>
     </div>
