@@ -1,7 +1,7 @@
 import "./productDetails.css";
 import { useEffect } from "react/cjs/react.development";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import {  useState } from "react";
+import { useState } from "react";
 
 import { useAuthContext } from "../../contexts/authContext";
 
@@ -30,6 +30,9 @@ export const ProductDetails = () => {
       .catch((err) => console.log(err));
   };
 
+  let likesClickHandler = ()=>{
+
+  }
   const userButtons = (
     <div className="edit-del-btn">
       <>
@@ -43,11 +46,22 @@ export const ProductDetails = () => {
       </>
     </div>
   );
+
+  const guestLikeButton = (
+    <div className="edit-del-btn">
+      <Link className="button-55" onClick={likesClickHandler}>
+        Like
+      </Link>
+    </div>
+  );
+
   return (
     <section id="details-page" className="details">
       <div className="product-information">
         <h3>Product name: {product.name} </h3>
         <p className="type">Category:{product.category}</p>
+        <p className="type">Likes: </p>
+
         <div className="img">
           <img alt="" src={`${product.imageUrl}`} />
         </div>
@@ -56,10 +70,12 @@ export const ProductDetails = () => {
       <div className="product-description">
         <h3>Details about the product:</h3>
         <p> {product.description} </p>
-        {/* <p>Author:{user.nikname}</p> */}
+       
       </div>
 
-      {user._id === product._ownerId ? userButtons : ""}
+      {user._id === product._ownerId ? userButtons : guestLikeButton}
+
+      
     </section>
   );
 };
