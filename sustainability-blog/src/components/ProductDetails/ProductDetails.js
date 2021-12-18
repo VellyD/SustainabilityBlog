@@ -70,7 +70,7 @@ export const ProductDetails = () => {
        
       </div>
 
-      {user._id === product._ownerId ? userButtons : guestLikeButton}
+      {user._id && (user._id === product._ownerId ? userButtons : guestLikeButton)}
 
       
     </section>
