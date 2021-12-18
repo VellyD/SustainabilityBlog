@@ -1,13 +1,12 @@
 import "./addProduct.css";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
 
-import { AuthContext } from "../../contexts/authContext";
+import { useAuthContext } from "../../contexts/authContext";
 
 import * as productService from "../../services/productService";
 
 export const AddProduct = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthContext();
   const navigate = useNavigate();
 
   let onCreatePost = (e) => {

@@ -1,12 +1,11 @@
 import "./registerFormData.css";
-import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../contexts/authContext";
+import { useAuthContext } from "../../contexts/authContext";
 import * as authService from "../../services/authService";
 
 export const Register = () => {
   let navigate = useNavigate();
-  const { login } = useContext(AuthContext);
+  const { login } = useAuthContext();
 
   let onRegisterHandler = (e) => {
     e.preventDefault();

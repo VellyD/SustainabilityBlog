@@ -1,9 +1,11 @@
 import "./formData.css";
 import * as authService from "../../services/authService";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../contexts/authContext";
 
-export const Login = ({ login }) => {
-  let navigate = useNavigate();
+export const Login = () => {
+  const navigate = useNavigate();
+  const {login} = useAuthContext()
 
   let onSubmitHandler = (e) => {
     e.preventDefault();

@@ -11,35 +11,17 @@ import { ProductDetails } from "./components/ProductDetails/ProductDetails";
 import { AllProducts } from "./components/Products/AllProducts";
 import { HomeProducts } from "./components/Home/HomeProducts";
 
-import { AuthContext } from "./contexts/authContext";
-import { useLocalStorage } from "./hooks/authHook";
-
-const initialState = {
-  _id: "",
-  email: "",
-  accessToken: "",
-};
-
+import { AuthProvider } from "./contexts/authContext";
 function App() {
-  const [user, setUser] = useLocalStorage("user", initialState);
-
-  const login = (authData) => {
-    setUser(authData);
-  };
-
-  const logout = () => {
-    setUser(initialState);
-  };
-
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthProvider>
       <div className="App">
-        <Header email={user.email} />
+        <Header />
 
         <Routes>
           <Route path="/" element={<HomeProducts />} />
           <Route path="/products" element={<AllProducts />} />
-          <Route path="/login" element={<Login login={login} />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/add-products" element={<AddProduct />} />
@@ -48,7 +30,7 @@ function App() {
 
         <Footer />
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 

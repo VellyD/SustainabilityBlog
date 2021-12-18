@@ -1,10 +1,9 @@
 import "./header.css";
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../contexts/authContext";
+import { useAuthContext } from "../../contexts/authContext";
 
 export const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthContext();
   const userView = (
     <>
       <li>

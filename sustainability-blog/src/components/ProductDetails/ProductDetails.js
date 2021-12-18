@@ -1,14 +1,14 @@
 import "./productDetails.css";
 import { useEffect } from "react/cjs/react.development";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import {  useState } from "react";
 
-import { AuthContext } from "../../contexts/authContext";
+import { useAuthContext } from "../../contexts/authContext";
 
 import * as productService from "../../services/productService";
 
 export const ProductDetails = () => {
-  const { user } = useContext(AuthContext);
+  const { user } = useAuthContext();
   const [product, setProduct] = useState({});
   const { postId } = useParams();
   const navigate = useNavigate();
