@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState } from "react";
 import { Routes, Route } from "react-router";
 
 import { Header } from "./components/Header/Header";
@@ -13,16 +12,16 @@ import { AllProducts } from "./components/Products/AllProducts";
 import { HomeProducts } from "./components/Home/HomeProducts";
 
 import { AuthContext } from "./contexts/authContext";
-import {useLocalStorage} from './hooks/authHook';
+import { useLocalStorage } from "./hooks/authHook";
 
 const initialState = {
   _id: "",
   email: "",
   accessToken: "",
-}
+};
 
 function App() {
-  const [user, setUser] = useLocalStorage('user', initialState);
+  const [user, setUser] = useLocalStorage("user", initialState);
 
   const login = (authData) => {
     setUser(authData);

@@ -23,7 +23,7 @@ export const AllProducts = () => {
         </div>
         <div className="clear"></div>
         <div className="gallery">
-         <p>*If you want to add your personal experience, please log in your profile or register for free.</p>
+         <p>*If you want to add your personal experience, please log into your profile or register for free.</p>
           
           {posts.length > 0 ? (
             posts.map((x) => <ProductCard key={x._id} productData={x} />)
