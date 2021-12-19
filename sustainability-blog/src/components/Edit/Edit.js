@@ -14,9 +14,14 @@ export const Edit = () => {
   let onEditPostHandler = (e) => {
     e.preventDefault();
 
-    let updatePostData = Object.fromEntries(new FormData(e.currentTarget));
+    let updatePostData = new FormData(e.currentTarget)
+    let name = updatePostData.get('name');
+    let description = updatePostData.get('description');
+    let imageUrl = updatePostData.get('imageUrl');
+    let category = updatePostData.get('type');
 
-    productService.editPost(post._id, updatePostData, user.accessToken)
+
+    productService.editPost(post._id, {name, description, imageUrl, category}, user.accessToken)
     .then(result=>{
         navigate('/products');
     });
@@ -62,7 +67,7 @@ export const Edit = () => {
           <p className="field">
             <label htmlFor="type">Category</label>
             <span className="input">
-              <select id="type" name="type" >
+              <select id="type" name="type" defaultValue={post.category}>
                 <option value="Kitchen">Kitchen</option>
                 <option value="Bathroom">Bathroom</option>
                 <option value="self-care">Self care</option>
