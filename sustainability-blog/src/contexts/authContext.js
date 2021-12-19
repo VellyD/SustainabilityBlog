@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { useLocalStorage } from "../hooks/authHook";
+import { useLocalStorage } from "../hooks/useAuthHook";
 
 export const AuthContext = createContext();
 

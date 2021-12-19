@@ -7,6 +7,7 @@ import { Login } from "./components/Login/Login";
 import { Logout } from "./components/Logout/Logout";
 import { Register } from "./components/Register/Register";
 import { AddProduct } from "./components/AddProduct/AddProduct";
+import { Edit } from "./components/Edit/Edit";
 import { ProductDetails } from "./components/ProductDetails/ProductDetails";
 import { AllProducts } from "./components/Products/AllProducts";
 import { HomeProducts } from "./components/Home/HomeProducts";
@@ -26,6 +27,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/add-products" element={<AddProduct />} />
           <Route path="/details/:postId" element={<ProductDetails />} />
+          <Route path="/edit/:postId" element={<Edit />} />
+
         </Routes>
 
         <Footer />

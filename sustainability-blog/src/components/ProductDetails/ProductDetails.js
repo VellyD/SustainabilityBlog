@@ -1,23 +1,16 @@
 import "./productDetails.css";
-import { useEffect } from "react/cjs/react.development";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 import { useAuthContext } from "../../contexts/authContext";
 
+import usePostState from "../../hooks/usePostState";
 import * as productService from "../../services/productService";
 
 export const ProductDetails = () => {
   const { user } = useAuthContext();
-  const [product, setProduct] = useState({});
   const { postId } = useParams();
+  const [product, setProduct] = usePostState(postId);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    productService.getOne(postId).then((productResult) => {
-      setProduct(productResult);
-    });
-  }, [postId]);
 
   let onDeleteHandler = (e) => {
     e.preventDefault();
@@ -33,7 +26,7 @@ export const ProductDetails = () => {
   const userButtons = (
     <div className="edit-del-btn">
       <>
-        <Link className="button-55" to="edit">
+        <Link className="button-55" to={`/edit/${product._id}`}>
           Edit
         </Link>
 
@@ -67,12 +60,10 @@ export const ProductDetails = () => {
       <div className="product-description">
         <h3>Details about the product:</h3>
         <p> {product.description} </p>
-       
       </div>
 
-      {user._id && (user._id === product._ownerId ? userButtons : guestLikeButton)}
-
-      
+      {user._id &&
+        (user._id === product._ownerId ? userButtons : guestLikeButton)}
     </section>
   );
 };
