@@ -1,12 +1,11 @@
 const baseUrl = "http://localhost:3030/data";
 
 export const getAllPosts = () => {
-  return fetch(`${baseUrl}/eco`)
-  .then((res) => {
-    if(res.ok){
-     return res.json()
-    }else{
-      throw res
+  return fetch(`${baseUrl}/eco`).then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw res;
     }
   });
 };
@@ -18,7 +17,7 @@ export const createPost = async (postData, token) => {
       "content-type": "application/json",
       "X-authorization": token,
     },
-    body: JSON.stringify({...postData, likes: []}),
+    body: JSON.stringify({ ...postData, likes: [] }),
   });
 
   let result = await response.json();
@@ -32,6 +31,23 @@ export const getOne = async (id) => {
   let result = await response.json();
 
   return result;
+};
+
+export const editPost = (postId, postData, token) => {
+  return fetch(`${baseUrl}/eco/${postId}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      "X-authorization": token,
+    },
+    body: JSON.stringify( postData ),
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    } else {
+      throw res;
+    }
+  });
 };
 
 export const removePost = async (postId, token) => {
