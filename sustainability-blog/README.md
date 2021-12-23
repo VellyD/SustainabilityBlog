@@ -6,7 +6,7 @@ This app is a blog style for sustainable products. The idea is the registered us
 
 For now the app is running locally using the npm start.
 
-##  Front end
+###  Front end
 
 `npm start`
 
@@ -21,6 +21,8 @@ You will also see any lint errors in the console.
 As backend for now I am using the SoftUni practice server. [SoftUni Practice Server](https://github.com/softuni-practice-server/softuni-practice-server)
 
 *After creating my own back-end i will update the source.
+
+## Functionalities:
 
 ### Home and Products view
 
