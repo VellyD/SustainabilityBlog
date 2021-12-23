@@ -4,7 +4,7 @@ This app is a blog style for sustainable products. The idea is the registered us
 
 ## Starting the app:
 
-For now the app is running locally using the npm start form VS Code
+For now the app is running locally using the npm start.
 
 ### `npm start`
 
@@ -18,10 +18,17 @@ You will also see any lint errors in the console.
 
 As backend for now I am using the SoftUni practice server. https://github.com/softuni-practice-server/softuni-practice-server
 
+After creating my own back-end i will update the source.
 
 ### Home and Products view
 
 Not registered users can access the home, where the last 3 added products are shown, and  products menu, where all products are listed with their details. Also have access to register or log directly in their accounts.
+
+
+### Adding new products and personal experience 
+
+Only registered users can create new posts and add, edit or remove their own products. Within this community the registered users can interact via likes/comments with all other posts. 
+
 
 <!-- ### `yarn build`
 
