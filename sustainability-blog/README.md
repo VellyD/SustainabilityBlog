@@ -14,6 +14,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### Back-end for the app
+
+As backend for now I am using the SoftUni practice server. https://github.com/softuni-practice-server/softuni-practice-server
+
+
+### Home and Products view
+
+Not registered users can access the home, where the last 3 added products are shown, and  products menu, where all products are listed with their details. Also have access to register or log directly in their accounts.
 
 <!-- ### `yarn build`
 
