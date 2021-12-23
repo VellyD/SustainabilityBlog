@@ -16,7 +16,7 @@ You will also see any lint errors in the console.
 
 ### Back-end for the app
 
-As backend for now I am using the SoftUni practice server. https://github.com/softuni-practice-server/softuni-practice-server
+As backend for now I am using the SoftUni practice server. [SoftUni Practice Server](https://github.com/softuni-practice-server/softuni-practice-server)
 
 After creating my own back-end i will update the source.
 
