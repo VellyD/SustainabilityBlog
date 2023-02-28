@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3030/data";
+const baseUrl = "https://sustainability-blog.herokuapp.com/data";
 
 export const getAllPosts = () => {
   return fetch(`${baseUrl}/eco`).then((res) => {
@@ -40,7 +40,7 @@ export const editPost = (postId, postData, token) => {
       "content-type": "application/json",
       "X-authorization": token,
     },
-    body: JSON.stringify( postData ),
+    body: JSON.stringify(postData),
   }).then((res) => {
     if (res.ok) {
       return res.json();
