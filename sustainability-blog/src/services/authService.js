@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:3030";
+const baseUrl = "https://sustainability-blog.herokuapp.com";
 
 export const register = ({ email, password }) => {
   return fetch(`${baseUrl}/users/register`, {
@@ -25,8 +25,8 @@ export const login = ({ email, password }) => {
 
 export const logout = (accessToken) => {
   return fetch(`${baseUrl}/users/logout`, {
-      headers: {
-          'X-Authorization': accessToken,
-      }
-  })
+    headers: {
+      "X-Authorization": accessToken,
+    },
+  });
 };
