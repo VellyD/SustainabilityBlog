@@ -1,6 +1,6 @@
-import "./header.css";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/authContext";
+import "./header.css";
 
 export const Header = () => {
   const { user } = useAuthContext();
@@ -33,30 +33,23 @@ export const Header = () => {
   return (
     <header>
       <div className="container_12">
-        <div className="grid_12">
-          <div className="slogan">
-            The sustainable blog. Share your experience!
-          </div>
+        <div className="slogan">
+          The sustainable blog. Share your experience!
         </div>
       </div>
-      <div className="clear"></div>
       <div className="menu_block">
         <div className="container_12">
-          <div className="grid_12">
-            <nav className="horizontal-nav full-width horizontalNav-notprocessed">
-              <ul className="sf-menu">
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-                <li>
-                  <Link to="/products">Products</Link>
-                </li>
-                {user.email ? userView : guestView}
-              </ul>
-            </nav>
-            <div className="clear"></div>
-          </div>
-          <div className="clear"></div>
+          <nav className="horizontal-nav full-width horizontalNav-notprocessed">
+            <ul className="sf-menu">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/products">Products</Link>
+              </li>
+              {user.email ? userView : guestView}
+            </ul>
+          </nav>
         </div>
       </div>
     </header>
