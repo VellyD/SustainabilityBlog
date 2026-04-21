@@ -1,33 +1,41 @@
-# Welcome to the Sustainability blog
+# 🌱 Sustainability Blog
 
-This app is a blog style for sustainable products. The idea is the registered users to add products and share personal experience.
+A full-stack blog platform for sharing eco-friendly product 
+alternatives and sustainable living tips.
 
-## Starting the app:
+## 🔗 Live Demo
+[Coming soon — backend migration in progress]
 
-For now the app is running locally using the npm start.
+## ✨ Features
+- User registration and authentication
+- Create, edit, and delete blog posts (CRUD)
+- Responsive UI design for all screen sizes
 
-###  Front end
+## 🛠️ Tech Stack
+**Frontend:** React, JavaScript, HTML, CSS  
+**Backend:** Node.js, Express  
+**Database:** MongoDB  
 
-`npm start`
+## 🚀 Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
+- Node.js v18+
+- MongoDB (local or Atlas)
 
-### Back-end 
+### Installation
+```bash
+git clone https://github.com/VellyD/SustainabilityBlog.git
+cd SustainabilityBlog
+npm install
+npm start
+```
 
-The back-end is deployed in Heroku. Currently using SoftUni's practice server.
+## 🔮 Future Improvements
+- Live deployment on Railway + MongoDB Atlas
+- Image upload for posts
+- Comment system
 
-[Back-End deploy](https://sustainability-blog.herokuapp.com/)
-<br>
-[SoftUni Practice Server](https://github.com/softuni-practice-server/softuni-practice-server)
-
-## Functionalities:
-
-### Home and Products view
-
-Not registered users can access the home, where the last 3 added products are shown, and  products menu, where all products are listed with their details. Also have access to register or log directly in their accounts.
-
-
-### Adding new products and personal experience 
-
-Only registered users can create new posts and add, edit or remove their own products. Within this community the registered users can interact via likes/comments with all other posts. 
+## 👩‍💻 Author
+**Velina Dimova-Mihaylov**  
+[GitHub](https://github.com/VellyD) · 
+[LinkedIn](https://linkedin.com/in/velina-dm)
