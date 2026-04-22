@@ -1,7 +1,7 @@
-const baseUrl = "https://sustainability-blog.herokuapp.com";
+const baseUrl = "https://sustainability-backend-l7wt.onrender.com";
 
 export const register = ({ email, password }) => {
-  return fetch(`${baseUrl}/users/register`, {
+  return fetch(`${baseUrl}/auth/register`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -11,7 +11,7 @@ export const register = ({ email, password }) => {
 };
 
 export const login = ({ email, password }) => {
-  return fetch(`${baseUrl}/users/login`, {
+  return fetch(`${baseUrl}/auth/login`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -24,7 +24,7 @@ export const login = ({ email, password }) => {
 };
 
 export const logout = (accessToken) => {
-  return fetch(`${baseUrl}/users/logout`, {
+  return fetch(`${baseUrl}/auth/logout`, {
     headers: {
       "X-Authorization": accessToken,
     },
