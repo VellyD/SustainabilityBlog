@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# backend 
+
+sustainability-backend/node_modules
+sustainability-backend/.env
+sustainability-blog/node_modules
