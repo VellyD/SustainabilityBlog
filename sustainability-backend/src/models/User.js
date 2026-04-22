@@ -7,17 +7,15 @@ const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
     default: "",
-    minlength: 3,
   },
   lastName: {
     type: String,
     default: "",
-    minlength: 5,
   },
   email: {
     type: String,
     required: true,
-    validate: /[a-zA-Z]*@[a-zA-Z]*.[a-zA-Z]*/g,
+    unique: true,
   },
   password: {
     type: String,
@@ -33,7 +31,6 @@ userSchema.pre("save", function (next) {
   });
 });
 
-//this method can be used on the instance of User -> user not the model
 userSchema.method("validatePassword", function (password) {
   return bcrypt.compare(password, this.password);
 });
