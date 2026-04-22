@@ -2,15 +2,14 @@ const authService = require("../services/authService");
 
 async function register(req, res) {
   try {
-    const { firstName, lastName, email, password } = req.body;
-    const user = await authService.register({
-      firstName,
-      lastName,
-      email,
-      password,
-    });
+    const { email, password } = req.body;
+    const user = await authService.register({ email, password });
     const token = await authService.generateToken(user);
-    res.status(201).json({ token, user: { id: user._id, email: user.email } });
+    res.status(201).json({
+      accessToken: token,
+      _id: user._id,
+      email: user.email,
+    });
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
@@ -19,8 +18,12 @@ async function register(req, res) {
 async function login(req, res) {
   try {
     const { email, password } = req.body;
-    const token = await authService.login(email, password);
-    res.json({ token });
+    const { token, user } = await authService.login(email, password);
+    res.json({
+      accessToken: token,
+      _id: user._id,
+      email: user.email,
+    });
   } catch (err) {
     res.status(401).json({ error: err.message });
   }

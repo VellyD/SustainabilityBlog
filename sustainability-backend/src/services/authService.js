@@ -14,7 +14,8 @@ async function login(email, password) {
   const isValid = await user.validatePassword(password);
   if (!isValid) throw new Error("Invalid email or password");
 
-  return generateToken(user);
+  const token = await generateToken(user);
+  return { token, user }; // ← return both token AND user
 }
 
 async function generateToken(user) {
