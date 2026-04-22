@@ -4,7 +4,7 @@ A full-stack blog platform for sharing eco-friendly product
 alternatives and sustainable living tips.
 
 ## 🔗 Live Demo
-[Coming soon — backend migration in progress]
+https://sustainability-blog.vercel.app/
 
 ## ✨ Features
 - User registration and authentication
