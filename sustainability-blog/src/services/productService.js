@@ -1,7 +1,7 @@
-const baseUrl = "https://sustainability-blog.herokuapp.com/data";
+const baseUrl = "https://sustainability-backend-l7wt.onrender.com";
 
 export const getAllPosts = () => {
-  return fetch(`${baseUrl}/eco`).then((res) => {
+  return fetch(`${baseUrl}/posts`).then((res) => {
     if (res.ok) {
       return res.json();
     } else {
@@ -11,7 +11,7 @@ export const getAllPosts = () => {
 };
 
 export const createPost = async (postData, token) => {
-  let response = await fetch(`${baseUrl}/eco`, {
+  let response = await fetch(`${baseUrl}/posts`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -26,7 +26,7 @@ export const createPost = async (postData, token) => {
 };
 
 export const getOne = async (id) => {
-  let response = await fetch(`${baseUrl}/eco/${id}`);
+  let response = await fetch(`${baseUrl}/posts/${id}`);
 
   let result = await response.json();
 
@@ -34,7 +34,7 @@ export const getOne = async (id) => {
 };
 
 export const editPost = (postId, postData, token) => {
-  return fetch(`${baseUrl}/eco/${postId}`, {
+  return fetch(`${baseUrl}/posts/${postId}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -51,7 +51,7 @@ export const editPost = (postId, postData, token) => {
 };
 
 export const removePost = async (postId, token) => {
-  let response = await fetch(`${baseUrl}/eco/${postId}`, {
+  let response = await fetch(`${baseUrl}/posts/${postId}`, {
     method: "DELETE",
     headers: {
       "X-Authorization": token,
