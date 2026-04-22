@@ -2,19 +2,25 @@ const mongoose = require("mongoose");
 
 const postsSchema = new mongoose.Schema(
   {
-    title: {
+    name: {
       type: String,
       required: true,
-      minlength: 3,
     },
-    content: {
+    description: {
       type: String,
       required: true,
-      minlength: 8,
     },
-    image: {
+    imageUrl: {
       type: String,
       default: "",
+    },
+    category: {
+      type: String,
+      default: "other",
+    },
+    likes: {
+      type: Array,
+      default: [],
     },
     author: {
       type: mongoose.Types.ObjectId,
