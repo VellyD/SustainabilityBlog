@@ -8,23 +8,27 @@ import { useAuthContext } from "../../contexts/authContext";
 export const Edit = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
-  const [post, setPost] = usePostState(postId);
+  const [post] = usePostState(postId);
   const { user } = useAuthContext();
 
   let onEditPostHandler = (e) => {
     e.preventDefault();
 
-    let updatePostData = new FormData(e.currentTarget)
-    let name = updatePostData.get('name');
-    let description = updatePostData.get('description');
-    let imageUrl = updatePostData.get('imageUrl');
-    let category = updatePostData.get('type');
+    let updatePostData = new FormData(e.currentTarget);
+    let name = updatePostData.get("name");
+    let description = updatePostData.get("description");
+    let imageUrl = updatePostData.get("imageUrl");
+    let category = updatePostData.get("type");
 
-
-    productService.editPost(post._id, {name, description, imageUrl, category}, user.accessToken)
-    .then(result=>{
-        navigate('/products');
-    });
+    productService
+      .editPost(
+        post._id,
+        { name, description, imageUrl, category },
+        user.accessToken,
+      )
+      .then((result) => {
+        navigate("/products");
+      });
   };
 
   return (

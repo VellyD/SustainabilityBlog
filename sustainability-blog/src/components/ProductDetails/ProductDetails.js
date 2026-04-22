@@ -9,7 +9,7 @@ import * as productService from "../../services/productService";
 export const ProductDetails = () => {
   const { user } = useAuthContext();
   const { postId } = useParams();
-  const [product, setProduct] = usePostState(postId);
+  const [product] = usePostState(postId);
   const navigate = useNavigate();
 
   let onDeleteHandler = (e) => {
