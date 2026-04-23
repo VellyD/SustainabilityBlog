@@ -1,15 +1,84 @@
-#login-form {
+/* Modern centered form */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+  background-color: #fff;
+}
+
+.form-box {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+}
+
+.form-box legend,
+.form-box h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #5f604b;
+  margin-bottom: 24px;
   text-align: center;
-  padding: 50px;
-  font-size: large;
-  letter-spacing: 3px;
-}
-legend {
-  padding: 20px;
+  border: none;
+  padding: 0;
 }
 
+.form-box .field {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
+.form-box label {
+  font-size: 14px;
+  color: #7a7a7a;
+  font-weight: 500;
+}
 
-p .field {
-  padding: auto;
+.form-box input[type="text"],
+.form-box input[type="email"],
+.form-box input[type="password"],
+.form-box textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #d1d1c6;
+  border-radius: 8px !important;
+  font-size: 15px;
+  color: #1a1a1a;
+  background: #fafaf8;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.form-box input:focus,
+.form-box textarea:focus {
+  border-color: #5f604b;
+  background: #fff;
+  outline: none;
+}
+
+.form-box .submit-btn,
+.form-box input[type="submit"] {
+  width: 100%;
+  padding: 13px;
+  background-color: #5f604b;
+  color: #fff;
+  border: none;
+  border-radius: 8px !important;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.form-box .submit-btn:hover,
+.form-box input[type="submit"]:hover {
+  background-color: #ce9f56;
 }

@@ -63,7 +63,10 @@ export const ProductDetails = () => {
       </div>
 
       {user._id &&
-        (user._id === product._ownerId ? userButtons : guestLikeButton)}
+        product.author &&
+        (user._id === product.author?._id?.toString()
+          ? userButtons
+          : guestLikeButton)}
     </section>
   );
 };
