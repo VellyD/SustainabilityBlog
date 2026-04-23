@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Pacifico);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 #owl {
 	overflow: hidden;
@@ -25,7 +25,8 @@
 }
 
 
-#owl .owl-prev, #owl .owl-next {
+#owl .owl-prev,
+#owl .owl-next {
 	cursor: pointer;
 	position: absolute;
 	background: url(../images/prevnext.png) 0 0 no-repeat;
@@ -44,6 +45,7 @@
 	background-position: right 0;
 
 }
+
 #owl .owl-next:hover {
 	background-position: right bottom;
 }
@@ -62,7 +64,7 @@
 
 
 
-.owl-carousel .owl-wrapper{
+.owl-carousel .owl-wrapper {
 	display: none;
 	position: relative;
 	-webkit-transform: translate3d(0px, 0px, 0px);
@@ -85,7 +87,7 @@
 }
 
 
-#owl1  .item {
+#owl1 .item {
 	padding-top: 5px;
 	overflow: hidden;
 }
@@ -105,7 +107,8 @@
 
 
 
-#owl1 .owl-prev, #owl1 .owl-next {
+#owl1 .owl-prev,
+#owl1 .owl-next {
 	cursor: pointer;
 	position: absolute;
 	background: url(../images/prevnext.png) 0 bottom no-repeat;
@@ -124,6 +127,7 @@
 	background-position: right bottom;
 
 }
+
 #owl1 .owl-next:hover {
 	background-position: right 0;
 }
