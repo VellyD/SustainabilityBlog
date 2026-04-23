@@ -283,7 +283,7 @@ header h1 a img {
     display: block;
 }
 
-.slogan {
+.slogan-header {
     text-align: center;
     font: 36px/36px 'Yellowtail', cursive;
     color: #ffffff;
@@ -291,6 +291,11 @@ header h1 a img {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
     width: 100%;
     box-sizing: border-box;
+}
+
+.slogan-message {
+    font: 32px 'Yellowtail', cursive;
+
 }
 
 /**Content**/

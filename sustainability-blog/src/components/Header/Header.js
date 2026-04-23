@@ -13,7 +13,7 @@ export const Header = () => {
         <Link to="/logout">Logout</Link>
       </li>
       <li>
-        <span className="welcome-text">👋 {user.email}</span>
+        <span className="welcome-text">{user.email} (Planet Hero!)</span>
       </li>
     </>
   );
@@ -30,8 +30,9 @@ export const Header = () => {
   return (
     <header>
       <div className="container_12">
-        <div className="slogan">
-          The sustainable blog. Share your experience!
+        <div className="slogan-header">Sustainable Swaps</div>
+        <div className="slogan-message">
+          No big changes—just better everyday choices.
         </div>
       </div>
       <div className="menu_block">

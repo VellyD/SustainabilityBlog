@@ -17,7 +17,11 @@ export const AllProducts = () => {
 
   return (
     <div className="content all-products-page">
-      <h2>All Products</h2>
+      <h2>
+        ,,Making more sustainable choices doesn’t have to be complicated. These
+        are simple swaps you can easily fit into your daily routine—no big
+        lifestyle changes, just small steps that add up over time.,,
+      </h2>
 
       {!user.email && (
         <p className="guest-message">
