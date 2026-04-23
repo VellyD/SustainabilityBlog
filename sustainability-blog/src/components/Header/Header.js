@@ -9,14 +9,11 @@ export const Header = () => {
       <li>
         <Link to="/add-products">Add Products</Link>
       </li>
-      {/* <li>
-        <Link to="/my-posts">My Posts</Link>
-      </li> */}
       <li>
         <Link to="/logout">Logout</Link>
       </li>
       <li>
-        <p>Welcome, {user.email}</p>
+        <span className="welcome-text">👋 {user.email}</span>
       </li>
     </>
   );
@@ -39,7 +36,7 @@ export const Header = () => {
       </div>
       <div className="menu_block">
         <div className="container_12">
-          <nav className="horizontal-nav full-width horizontalNav-notprocessed">
+          <nav className="horizontal-nav full-width">
             <ul className="sf-menu">
               <li>
                 <Link to="/">Home</Link>

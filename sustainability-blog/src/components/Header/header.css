@@ -9,6 +9,7 @@ div .container_12 {
 .menu_block {
    width: 100%;
    background-color: #e8e7d8;
+   padding: 0;
 }
 
 .menu_block .container_12 {
@@ -25,25 +26,41 @@ div .container_12 {
    align-items: center;
    justify-content: center;
    list-style: none;
-   padding: 15px 0;
+   padding: 12px 0;
    margin: 0;
-   flex-wrap: wrap;
-   gap: 5px;
+   flex-wrap: nowrap;
+   /* prevent wrapping to second row */
+   gap: 0;
    width: 100%;
 }
 
 .sf-menu li {
-   padding: 0 10px;
+   padding: 0 16px;
+   line-height: 1;
 }
 
 .sf-menu li a,
 .sf-menu li p {
    color: #5f604b;
-   font-size: 16px;
+   font-size: 15px;
    text-decoration: none;
    white-space: nowrap;
+   margin: 0;
+   padding: 0;
 }
 
 .sf-menu li a:hover {
    color: #ce9f56;
+}
+
+/* Remove the bullet separators */
+.sf-menu li+li::before {
+   content: '';
+}
+
+
+.welcome-text {
+   color: #5f604b;
+   font-size: 14px;
+   font-style: italic;
 }

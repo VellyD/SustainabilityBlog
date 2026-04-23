@@ -26,66 +26,56 @@ export const AddProduct = () => {
   };
 
   return (
-    <div className="content">
-      <div className="container_12">
-        <div className="gallery">
-          <section id="create-page" className="create">
-            <form onSubmit={onCreatePost} id="create-form" action="" method="">
-              <fieldset>
-                <legend>Add new post</legend>
-                <p className="field">
-                  <label htmlFor="name">Product name</label>
-                  <span className="input">
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      placeholder="Name"
-                    />
-                  </span>
-                </p>
-                <p className="field">
-                  <label htmlFor="description">Description</label>
-                  <span className="input">
-                    <textarea
-                      name="description"
-                      id="description"
-                      placeholder="Description"
-                    ></textarea>
-                  </span>
-                </p>
-                <p className="field">
-                  <label htmlFor="image">Image</label>
-                  <span className="input">
-                    <input
-                      type="text"
-                      name="imageUrl"
-                      id="image"
-                      placeholder="Image"
-                    />
-                  </span>
-                </p>
-                <p className="field">
-                  <label htmlFor="type">Category</label>
-                  <span className="input">
-                    <select id="type" name="type">
-                      <option value="Kitchen">Kitchen</option>
-                      <option value="Bathroom">Bathroom</option>
-                      <option value="self-care">Self care</option>
-                      <option value="Swaps">Swaps</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </span>
-                </p>
-                <input
-                  className="button submit"
-                  type="submit"
-                  value="Add post"
-                />
-              </fieldset>
-            </form>
-          </section>
-        </div>
+    <div className="form-container">
+      <div className="form-box">
+        <form onSubmit={onCreatePost} id="create-form">
+          <fieldset>
+            <legend>Add New Post</legend>
+
+            <div className="field">
+              <label htmlFor="name">Product Name</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="e.g. Reusable Shopping Bag"
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="description">Description</label>
+              <textarea
+                name="description"
+                id="description"
+                placeholder="Tell us about this eco-friendly product..."
+                rows="4"
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="image">Image URL</label>
+              <input
+                type="text"
+                name="imageUrl"
+                id="image"
+                placeholder="https://..."
+              />
+            </div>
+
+            <div className="field">
+              <label htmlFor="type">Category</label>
+              <select id="type" name="type" className="form-select">
+                <option value="Kitchen">Kitchen</option>
+                <option value="Bathroom">Bathroom</option>
+                <option value="self-care">Self Care</option>
+                <option value="Swaps">Swaps</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <input className="submit-btn" type="submit" value="Add Post" />
+          </fieldset>
+        </form>
       </div>
     </div>
   );

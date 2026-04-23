@@ -1,4 +1,8 @@
-.edit{
+.edit {
     text-align: center;
     background-color: white;
+}
+
+#edit-page {
+    min-height: 60vh;
 }

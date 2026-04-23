@@ -1,6 +1,6 @@
 import "./edit.css";
+import "../shared/forms.css";
 import { useParams, useNavigate } from "react-router-dom";
-
 import usePostState from "../../hooks/usePostState";
 import * as productService from "../../services/productService";
 import { useAuthContext } from "../../contexts/authContext";
@@ -26,63 +26,69 @@ export const Edit = () => {
         { name, description, imageUrl, category },
         user.accessToken,
       )
-      .then((result) => {
-        navigate("/products");
-      });
+      .then(() => navigate("/products"));
   };
 
   return (
-    <section id="edit-page" className="edit">
-      <form id="edit-form" method="POST" onSubmit={onEditPostHandler}>
-        <fieldset>
-          <legend>Edit my Post</legend>
-          <p className="field">
-            <label htmlFor="name">Product name</label>
-            <span className="input">
+    <div className="form-container">
+      <div className="form-box">
+        <form id="edit-form" onSubmit={onEditPostHandler}>
+          <fieldset>
+            <legend>Edit Post</legend>
+
+            <div className="field">
+              <label htmlFor="name">Product Name</label>
               <input
                 type="text"
                 name="name"
                 id="name"
                 defaultValue={post.name}
+                placeholder="Product name"
               />
-            </span>
-          </p>
-          <p className="field">
-            <label htmlFor="description">Description</label>
-            <span className="input">
+            </div>
+
+            <div className="field">
+              <label htmlFor="description">Description</label>
               <textarea
                 name="description"
                 id="description"
                 defaultValue={post.description}
+                placeholder="Description"
+                rows="4"
               />
-            </span>
-          </p>
-          <p className="field">
-            <label htmlFor="image">Image</label>
-            <span className="input">
+            </div>
+
+            <div className="field">
+              <label htmlFor="image">Image URL</label>
               <input
                 type="text"
                 name="imageUrl"
                 id="image"
                 defaultValue={post.imageUrl}
+                placeholder="https://..."
               />
-            </span>
-          </p>
-          <p className="field">
-            <label htmlFor="type">Category</label>
-            <span className="input">
-              <select id="type" name="type" defaultValue={post.category}>
+            </div>
+
+            <div className="field">
+              <label htmlFor="type">Category</label>
+              <select
+                id="type"
+                name="type"
+                className="form-select"
+                defaultValue={post.category}
+              >
                 <option value="Kitchen">Kitchen</option>
                 <option value="Bathroom">Bathroom</option>
-                <option value="self-care">Self care</option>
+                <option value="self-care">Self Care</option>
                 <option value="Swaps">Swaps</option>
                 <option value="other">Other</option>
               </select>
-            </span>
-          </p>
-          <input className="button submit" type="submit" value="Save" />
-        </fieldset>
-      </form>
-    </section>
+            </div>
+
+            <input className="submit-btn" type="submit" value="Save Changes" />
+          </fieldset>
+        </form>
+      </div>
+    </div>
   );
 };
