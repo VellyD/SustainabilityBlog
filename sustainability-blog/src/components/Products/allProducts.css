@@ -2,3 +2,44 @@ p {
     /* align-self: center; */
     text-align: center;
 }
+
+.all-products-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.all-products-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.guest-message {
+    text-align: center;
+    color: #7a7a7a;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.guest-message a {
+    color: #5f604b;
+    font-weight: bold;
+}
+
+.guest-message a:hover {
+    color: #ce9f56;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.no-pets {
+    text-align: center;
+    color: #7a7a7a;
+    grid-column: 1/-1;
+}

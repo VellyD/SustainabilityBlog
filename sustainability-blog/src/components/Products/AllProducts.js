@@ -1,41 +1,38 @@
 import "./allProducts.css";
-
 import { useState, useEffect } from "react";
 import { ProductCard } from "./ProductCard.js/ProductCard";
-
 import * as postService from "../../services/productService";
+import { useAuthContext } from "../../contexts/authContext";
 
 export const AllProducts = () => {
   const [posts, setPosts] = useState([]);
+  const { user } = useAuthContext();
 
   useEffect(() => {
     postService
       .getAllPosts()
-      .then((res) => {
-        setPosts(Object.values(res));
-      })
-      .catch((err) => console.log(err.statusText));
+      .then((res) => setPosts(Object.values(res)))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
-    <div className="content">
-      <div className="container_12">
-        <div className="grid_12">
-          <h2>All Products</h2>
-        </div>
-        <div className="clear"></div>
-        <div className="gallery">
-          <p>
-            *If you want to add your personal experience, please log into your
-            profile or register for free.
-          </p>
+    <div className="content all-products-page">
+      <h2>All Products</h2>
 
-          {posts.length > 0 ? (
-            posts.map((x) => <ProductCard key={x._id} productData={x} />)
-          ) : (
-            <p className="no-pets">No Posts in database!</p>
-          )}
-        </div>
+      {!user.email && (
+        <p className="guest-message">
+          *If you want to add your personal experience, please
+          <a href="/login"> log in</a> or
+          <a href="/register"> register</a> for free.
+        </p>
+      )}
+
+      <div className="products-grid">
+        {posts.length > 0 ? (
+          posts.map((x) => <ProductCard key={x._id} productData={x} />)
+        ) : (
+          <p className="no-pets">No Posts in database!</p>
+        )}
       </div>
     </div>
   );

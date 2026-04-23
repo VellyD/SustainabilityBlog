@@ -1,3 +1,26 @@
 .grid_12 {
   text-align: center;
 }
+
+.home-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.home-intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.home-intro h2 {
+  color: #5f604b;
+  font-size: 24px;
+  padding-top: 20px;
+}
+
+.home-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
