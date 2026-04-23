@@ -1,5 +1,4 @@
 import "./edit.css";
-import "../shared/forms.css";
 import { useParams, useNavigate } from "react-router-dom";
 import usePostState from "../../hooks/usePostState";
 import * as productService from "../../services/productService";
