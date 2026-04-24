@@ -1,4 +1,12 @@
-/* ── HEADER ── */
+div .container_12 {
+   width: 90%;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: center;
+}
+
+/* Fix nav layout */
 .menu_block {
    width: 100%;
    background-color: #e8e7d8;
@@ -14,6 +22,7 @@
 }
 
 .sf-menu {
+   list-style-type: none;
    display: flex !important;
    flex-direction: row;
    align-items: center;
@@ -22,6 +31,7 @@
    padding: 12px 0;
    margin: 0;
    flex-wrap: nowrap;
+   /* prevent wrapping to second row */
    gap: 0;
    width: 100%;
 }
@@ -45,12 +55,24 @@
    color: #ce9f56;
 }
 
-/* ── SLOGAN ── */
+/* Remove the bullet separators */
+.sf-menu li+li::before {
+   content: '';
+}
+
+
+.welcome-text {
+   color: #5f604b;
+   font-size: 14px;
+   font-style: italic;
+}
+
+/* Slogan */
 .slogan-header {
    text-align: center;
-   font: 52px/1.2 'Yellowtail', cursive;
+   font: 42px/1.2 'Yellowtail', cursive;
    color: #ffffff;
-   padding-top: 40px;
+   padding-top: 30px;
    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -58,21 +80,20 @@
    text-align: center;
    font-size: 16px;
    color: #e7e6d4;
-   padding-bottom: 40px;
+   padding-bottom: 30px;
    font-style: italic;
    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* ── ADD SWAP BUTTON ── */
+/* Add Swap button */
 .add-swap-btn {
-   background-color: #5f604b !important;
+   background-color: #5f604b;
    color: #fff !important;
-   padding: 8px 20px !important;
-   border-radius: 8px !important;
-   font-size: 14px !important;
-   font-weight: 600 !important;
-   transition: background-color 0.2s !important;
-   display: inline-block;
+   padding: 8px 18px;
+   border-radius: 20px;
+   font-size: 14px;
+   font-weight: 600;
+   transition: background-color 0.2s;
 }
 
 .add-swap-btn:hover {
@@ -80,23 +101,21 @@
    color: #fff !important;
 }
 
-/* ── PROFILE DROPDOWN — CSS only, no JS needed ── */
+/* Profile dropdown */
 .profile-menu {
    position: relative;
    cursor: pointer;
-   list-style: none;
 }
 
 .welcome-text {
    color: #5f604b;
    font-size: 15px;
    font-weight: 600;
-   padding: 8px 14px;
-   border-radius: 8px;
+   padding: 8px 12px;
+   border-radius: 20px;
    border: 1.5px solid #5f604b;
    transition: all 0.2s;
    user-select: none;
-   display: inline-block;
 }
 
 .profile-menu:hover .welcome-text {
@@ -104,24 +123,21 @@
    color: #fff;
 }
 
-/* Hidden by default — shows on hover */
 .dropdown-menu {
-   display: none;
    position: absolute;
    right: 0;
-   top: calc(100% + 4px);
+   top: 100%;
    background: #fff;
    border-radius: 10px;
    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
    min-width: 200px;
    z-index: 999;
    padding: 8px 0;
-   list-style: none;
+   margin-top: 4px;
 }
 
-/* Show on hover — CSS only, no JS needed */
-.profile-menu:hover .dropdown-menu {
-   display: block;
+.dropdown-menu li {
+   padding: 0 !important;
 }
 
 .dropdown-email {
@@ -131,10 +147,6 @@
    color: #7a7a7a;
    border-bottom: 1px solid #f0f0f0;
    cursor: default;
-}
-
-.dropdown-menu li {
-   padding: 0 !important;
 }
 
 .dropdown-menu li a {
@@ -149,15 +161,3 @@
    background-color: #f3f2e9;
    color: #ce9f56 !important;
 }
-
-.nav-wrapper {
-   position: relative;
-}
-
-/* Position button top-right */
-.add-swap-container {
-   position: absolute;
-   right: 40px;
-   /* match container padding */
-   top: 50%;
-   transform: translateY(-50%);
