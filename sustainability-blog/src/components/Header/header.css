@@ -11,8 +11,17 @@
    padding: 0 40px;
    display: flex;
    justify-content: center;
+   position: relative;
+   /* needed for absolute positioning */
 }
 
+/* Wrapper for positioning */
+.nav-wrapper {
+   position: relative;
+   width: 100%;
+}
+
+/* ── NAV ── */
 .sf-menu {
    display: flex !important;
    flex-direction: row;
@@ -63,7 +72,14 @@
    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* ── ADD SWAP BUTTON ── */
+/* ── ADD SWAP BUTTON (TOP RIGHT) ── */
+.add-swap-container {
+   position: absolute;
+   right: 40px;
+   top: 50%;
+   transform: translateY(-50%);
+}
+
 .add-swap-btn {
    background-color: #5f604b !important;
    color: #fff !important;
@@ -80,36 +96,37 @@
    color: #fff !important;
 }
 
-/* ── PROFILE DROPDOWN — CSS only, no JS needed ── */
+/* ── PROFILE DROPDOWN (CLICK-BASED) ── */
 .profile-menu {
    position: relative;
-   cursor: pointer;
    list-style: none;
 }
 
+/* Button style */
 .welcome-text {
+   background: none;
+   border: 1.5px solid #5f604b;
    color: #5f604b;
    font-size: 15px;
    font-weight: 600;
    padding: 8px 14px;
    border-radius: 8px;
-   border: 1.5px solid #5f604b;
    transition: all 0.2s;
-   user-select: none;
-   display: inline-block;
+   cursor: pointer;
 }
 
-.profile-menu:hover .welcome-text {
+/* Hover effect stays */
+.welcome-text:hover {
    background-color: #5f604b;
    color: #fff;
 }
 
-/* Hidden by default — shows on hover */
+/* Dropdown hidden by default */
 .dropdown-menu {
    display: none;
    position: absolute;
    right: 0;
-   top: calc(100% + 4px);
+   top: calc(100% + 6px);
    background: #fff;
    border-radius: 10px;
    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -119,8 +136,8 @@
    list-style: none;
 }
 
-/* Show on hover — CSS only, no JS needed */
-.profile-menu:hover .dropdown-menu {
+/* Show ONLY when React adds "open" */
+.profile-menu.open .dropdown-menu {
    display: block;
 }
 
@@ -149,15 +166,3 @@
    background-color: #f3f2e9;
    color: #ce9f56 !important;
 }
-
-.nav-wrapper {
-   position: relative;
-}
-
-/* Position button top-right */
-.add-swap-container {
-   position: absolute;
-   right: 40px;
-   /* match container padding */
-   top: 50%;
-   transform: translateY(-50%);

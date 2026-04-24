@@ -8,27 +8,25 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const closeMenu = () => setIsOpen(false);
 
   const userView = (
-    <>
-      {/* Profile */}
-      <li className="profile-menu">
-        <button onClick={toggleMenu} className="welcome-text">
-          {user.email.split("@")[0]} ▾
-        </button>
+    <li className={`profile-menu ${isOpen ? "open" : ""}`}>
+      <button onClick={toggleMenu} className="welcome-text">
+        {user.email.split("@")[0]} ▾
+      </button>
 
-        {isOpen && (
-          <ul className="dropdown-menu">
-            <li>
-              <span className="dropdown-email">{user.email}</span>
-            </li>
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
-          </ul>
-        )}
-      </li>
-    </>
+      <ul className="dropdown-menu">
+        <li>
+          <span className="dropdown-email">{user.email}</span>
+        </li>
+        <li>
+          <Link to="/logout" onClick={closeMenu}>
+            Logout
+          </Link>
+        </li>
+      </ul>
+    </li>
   );
 
   const guestView = (
@@ -53,8 +51,8 @@ export const Header = () => {
 
       <div className="menu_block">
         <div className="container_12 nav-wrapper">
-          {/* 🔼 Add Swap moved OUTSIDE ul */}
-          {user.email && (
+          {/* Top-right button */}
+          {user && (
             <div className="add-swap-container">
               <Link to="/products/add" className="add-swap-btn">
                 + Add Swap
@@ -71,7 +69,7 @@ export const Header = () => {
                 <Link to="/products">Swaps</Link>
               </li>
 
-              {user.email ? userView : guestView}
+              {user ? userView : guestView}
             </ul>
           </nav>
         </div>
