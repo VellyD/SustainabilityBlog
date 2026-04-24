@@ -149,3 +149,15 @@
    background-color: #f3f2e9;
    color: #ce9f56 !important;
 }
+
+.nav-wrapper {
+   position: relative;
+}
+
+/* Position button top-right */
+.add-swap-container {
+   position: absolute;
+   right: 40px;
+   /* match container padding */
+   top: 50%;
+   transform: translateY(-50%);
