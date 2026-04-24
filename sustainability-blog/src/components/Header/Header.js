@@ -1,22 +1,39 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/authContext";
 import "./header.css";
 
 export const Header = () => {
   const { user } = useAuthContext();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const userView = (
     <>
       <li>
-        <Link to="/add-products">Add Products</Link>
+        <Link to="/products/add" className="add-swap-btn">
+          + Add Swap
+        </Link>
       </li>
-      <li>
-        <Link to="/logout">Logout</Link>
-      </li>
-      <li>
-        <span className="welcome-text">{user.email} (Planet Hero!)</span>
+      <li
+        className="profile-menu"
+        onMouseEnter={() => setDropdownOpen(true)}
+        onMouseLeave={() => setDropdownOpen(false)}
+      >
+        <span className="welcome-text">{user.email.split("@")[0]} ▾</span>
+        {dropdownOpen && (
+          <ul className="dropdown-menu">
+            <li>
+              <span className="dropdown-email">{user.email}</span>
+            </li>
+            <li>
+              <Link to="/logout">Logout</Link>
+            </li>
+          </ul>
+        )}
       </li>
     </>
   );
+
   const guestView = (
     <>
       <li>
@@ -27,12 +44,13 @@ export const Header = () => {
       </li>
     </>
   );
+
   return (
     <header>
       <div className="container_12">
         <div className="slogan-header">Sustainable Swaps</div>
         <div className="slogan-message">
-          No big changes—just better everyday choices.
+          No big changes — just better everyday choices.
         </div>
       </div>
       <div className="menu_block">
@@ -43,7 +61,7 @@ export const Header = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/products">Products</Link>
+                <Link to="/products">Swaps</Link>
               </li>
               {user.email ? userView : guestView}
             </ul>

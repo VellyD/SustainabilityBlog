@@ -1,26 +1,86 @@
-.grid_12 {
-  text-align: center;
-}
-
 .home-page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  background-color: #fff;
 }
 
-.home-intro {
+/* Mission section */
+.home-mission {
   text-align: center;
+  padding: 60px 20px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.home-mission h2 {
+  font-size: 32px;
+  color: #5f604b;
+  margin-bottom: 16px;
+  padding-top: 0;
+}
+
+.home-mission>p {
+  font-size: 16px;
+  color: #7a7a7a;
+  line-height: 1.8;
   margin-bottom: 40px;
 }
 
-.home-intro h2 {
+.home-mission-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.pillar {
+  background: #f3f2e9;
+  border-radius: 12px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.pillar span {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.pillar h4 {
+  color: #5f604b;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pillar p {
+  color: #7a7a7a;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Latest swaps */
+.home-latest {
+  padding: 40px 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-latest h3 {
+  text-align: center;
   color: #5f604b;
   font-size: 24px;
-  padding-top: 20px;
+  padding-top: 0;
+  margin-bottom: 30px;
 }
 
 .home-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
+}
+
+.no-pets {
+  text-align: center;
+  color: #7a7a7a;
+  grid-column: 1/-1;
 }

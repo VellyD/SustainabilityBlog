@@ -17,6 +17,7 @@ export const AllProducts = () => {
 
   return (
     <div className="content all-products-page">
+      <h2>All Swaps</h2>
       <h2>
         ,,Making more sustainable choices doesn’t have to be complicated. These
         are simple swaps you can easily fit into your daily routine—no big

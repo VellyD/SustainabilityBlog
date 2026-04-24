@@ -30,7 +30,7 @@ export const AddProduct = () => {
       <div className="form-box">
         <form onSubmit={onCreatePost} id="create-form">
           <fieldset>
-            <legend>Add New Post</legend>
+            <legend>Share a Swap</legend>
 
             <div className="field">
               <label htmlFor="name">Product Name</label>

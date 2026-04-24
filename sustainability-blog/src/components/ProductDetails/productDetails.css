@@ -6,22 +6,8 @@
   margin: 40px auto;
   padding: 0 20px;
   align-items: flex-start;
-}
-
-.details-image {
-  flex: 1;
-  max-width: 480px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-}
-
-.details-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  aspect-ratio: 1/1;
+  background-color: #fff;
+  /* ← fixes the dark background */
 }
 
 .details-info {
@@ -30,6 +16,8 @@
   flex-direction: column;
   gap: 16px;
   padding-top: 10px;
+  align-items: flex-start;
+  /* ← aligns everything left */
 }
 
 .details-info h2 {
@@ -37,13 +25,17 @@
   color: #5f604b;
   padding-top: 0;
   margin-bottom: 0;
+  text-align: left;
+  /* ← left align title */
 }
 
 .details-category,
 .details-likes {
   font-size: 15px;
-  color: #7a7a7a;
+  color: #5f604b;
+  /* ← darker, more visible */
   margin: 0;
+  text-align: left;
 }
 
 .details-category span,
@@ -52,21 +44,21 @@
   color: #5f604b;
 }
 
-.details-description {
-  margin-top: 8px;
-}
-
 .details-description h3 {
   font-size: 18px;
   color: #5f604b;
   padding-top: 0;
   margin-bottom: 8px;
+  text-align: left;
 }
 
 .details-description p {
-  color: #7a7a7a;
+  color: #3a3a3a;
+  /* ← darker for readability */
   line-height: 1.7;
   font-size: 15px;
+  text-align: left;
+  /* ← left align description */
 }
 
 .details-buttons {
@@ -78,8 +70,8 @@
 
 .delete-btn {
   background-color: #fff !important;
-  color: #c0392b !important;
-  border: 2px solid #c0392b !important;
+  color: #5f604b !important;
+  border: 2px solid #5f604b !important;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
@@ -90,6 +82,7 @@
 
 .delete-btn:hover {
   background-color: #c0392b !important;
+  border-color: #c0392b !important;
   color: #fff !important;
 }
 
