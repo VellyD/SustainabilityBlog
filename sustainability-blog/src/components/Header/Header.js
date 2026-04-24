@@ -39,19 +39,27 @@ export const Header = () => {
 
   return (
     <header>
-      <div className="container_12 header-inner">
-        {/* Add Swap button — top right */}
-        {user.email && (
-          <Link to="/products/add" className="add-swap-btn">
-            + Add Swap
-          </Link>
-        )}
+      <div className="container_12">
         <div className="slogan-header">Sustainable Swaps</div>
         <div className="slogan-message">
           No big changes — just better everyday choices.
         </div>
       </div>
-      {/* rest stays same */}
+      <div className="menu_block">
+        <div className="container_12">
+          <nav className="horizontal-nav full-width">
+            <ul className="sf-menu">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/products">Swaps</Link>
+              </li>
+              {user.email ? userView : guestView}
+            </ul>
+          </nav>
+        </div>
+      </div>
     </header>
   );
 };
