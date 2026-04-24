@@ -62,14 +62,16 @@ export const Header = () => {
 
           <nav className="horizontal-nav full-width">
             <ul className="sf-menu">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/products">Swaps</Link>
-              </li>
+              <div>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Link to="/products">Swaps</Link>
+                </li>
+              </div>
 
-              {user ? userView : guestView}
+              <div>{user ? userView : guestView}</div>
             </ul>
           </nav>
         </div>

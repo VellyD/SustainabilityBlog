@@ -26,7 +26,7 @@
    display: flex !important;
    flex-direction: row;
    align-items: center;
-   justify-content: center;
+   justify-content: space-between;
    list-style: none;
    padding: 12px 0;
    margin: 0;
@@ -65,20 +65,13 @@
 
 .slogan-message {
    text-align: center;
-   font-size: 16px;
+   font-size: 24px;
    color: #e7e6d4;
    padding-bottom: 40px;
    font-style: italic;
    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* ── ADD SWAP BUTTON (TOP RIGHT) ── */
-.add-swap-container {
-   position: absolute;
-   right: 40px;
-   top: 50%;
-   transform: translateY(-50%);
-}
 
 .add-swap-btn {
    background-color: #5f604b !important;
