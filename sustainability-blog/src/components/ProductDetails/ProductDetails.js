@@ -22,51 +22,51 @@ export const ProductDetails = () => {
       })
       .catch((err) => console.log(err));
   };
-
-  const userButtons = (
-    <div className="edit-del-btn">
-      <>
-        <Link className="button-55" to={`/edit/${product._id}`}>
-          Edit
-        </Link>
-
-        <Link className="button-55" onClick={onDeleteHandler} to={`/delete`}>
-          Delete
-        </Link>
-      </>
-    </div>
-  );
-
-  const guestLikeButton = (
-    <div className="edit-del-btn">
-      <Link className="button-55" to="">
-        Like
-      </Link>
-    </div>
-  );
-
   return (
-    <section id="details-page" className="details">
-      <div className="product-information">
-        <h3>Product name: {product.name} </h3>
-        <p className="type">Category:{product.category}</p>
-        <p className="type">Likes: </p>
+    <div className="details-container">
+      {/* Left side — image */}
+      <div className="details-image">
+        <img alt={product.name} src={product.imageUrl} />
+      </div>
 
-        <div className="img">
-          <img alt="" src={`${product.imageUrl}`} />
+      {/* Right side — info */}
+      <div className="details-info">
+        <h2>{product.name}</h2>
+        <p className="details-category">
+          <span>Category:</span> {product.category}
+        </p>
+        <p className="details-likes">
+          <span>Likes:</span> {product.likes?.length || 0}
+        </p>
+        <div className="details-description">
+          <h3>About this product</h3>
+          <p>{product.description}</p>
+        </div>
+
+        {/* Buttons */}
+        <div className="details-buttons">
+          {user._id &&
+            product.author &&
+            (user._id === product.author?._id?.toString() ? (
+              <>
+                <Link
+                  className="product-overlay-btn"
+                  to={`/edit/${product._id}`}
+                >
+                  Edit
+                </Link>
+                <button
+                  className="product-overlay-btn delete-btn"
+                  onClick={onDeleteHandler}
+                >
+                  Delete
+                </button>
+              </>
+            ) : (
+              <button className="product-overlay-btn like-btn">Like</button>
+            ))}
         </div>
       </div>
-
-      <div className="product-description">
-        <h3>Details about the product:</h3>
-        <p> {product.description} </p>
-      </div>
-
-      {user._id &&
-        product.author &&
-        (user._id === product.author?._id?.toString()
-          ? userButtons
-          : guestLikeButton)}
-    </section>
+    </div>
   );
 };

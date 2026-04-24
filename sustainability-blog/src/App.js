@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router";
-
+import { PrivateRoute } from "./components/shared/PrivateRoute";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer";
 import { Login } from "./components/Login/Login";
@@ -25,10 +25,23 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/add-products" element={<AddProduct />} />
+          <Route
+            path="/add-products"
+            element={
+              <PrivateRoute>
+                <AddProduct />
+              </PrivateRoute>
+            }
+          />
           <Route path="/details/:postId" element={<ProductDetails />} />
-          <Route path="/edit/:postId" element={<Edit />} />
-
+          <Route
+            path="/edit/:postId"
+            element={
+              <PrivateRoute>
+                <Edit />
+              </PrivateRoute>
+            }
+          />
         </Routes>
 
         <Footer />
