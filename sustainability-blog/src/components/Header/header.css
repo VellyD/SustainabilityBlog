@@ -1,12 +1,4 @@
-div .container_12 {
-   width: 90%;
-   display: flex;
-   flex-wrap: wrap;
-   align-items: center;
-   justify-content: center;
-}
-
-/* Fix nav layout */
+/* ── HEADER ── */
 .menu_block {
    width: 100%;
    background-color: #e8e7d8;
@@ -22,7 +14,6 @@ div .container_12 {
 }
 
 .sf-menu {
-   list-style-type: none;
    display: flex !important;
    flex-direction: row;
    align-items: center;
@@ -31,7 +22,6 @@ div .container_12 {
    padding: 12px 0;
    margin: 0;
    flex-wrap: nowrap;
-   /* prevent wrapping to second row */
    gap: 0;
    width: 100%;
 }
@@ -55,24 +45,12 @@ div .container_12 {
    color: #ce9f56;
 }
 
-/* Remove the bullet separators */
-.sf-menu li+li::before {
-   content: '';
-}
-
-
-.welcome-text {
-   color: #5f604b;
-   font-size: 14px;
-   font-style: italic;
-}
-
-/* Slogan */
+/* ── SLOGAN ── */
 .slogan-header {
    text-align: center;
-   font: 42px/1.2 'Yellowtail', cursive;
+   font: 52px/1.2 'Yellowtail', cursive;
    color: #ffffff;
-   padding-top: 30px;
+   padding-top: 40px;
    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -80,20 +58,21 @@ div .container_12 {
    text-align: center;
    font-size: 16px;
    color: #e7e6d4;
-   padding-bottom: 30px;
+   padding-bottom: 40px;
    font-style: italic;
    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Add Swap button */
+/* ── ADD SWAP BUTTON ── */
 .add-swap-btn {
-   background-color: #5f604b;
+   background-color: #5f604b !important;
    color: #fff !important;
-   padding: 8px 18px;
-   border-radius: 20px;
-   font-size: 14px;
-   font-weight: 600;
-   transition: background-color 0.2s;
+   padding: 8px 20px !important;
+   border-radius: 8px !important;
+   font-size: 14px !important;
+   font-weight: 600 !important;
+   transition: background-color 0.2s !important;
+   display: inline-block;
 }
 
 .add-swap-btn:hover {
@@ -101,21 +80,23 @@ div .container_12 {
    color: #fff !important;
 }
 
-/* Profile dropdown */
+/* ── PROFILE DROPDOWN — CSS only, no JS needed ── */
 .profile-menu {
    position: relative;
    cursor: pointer;
+   list-style: none;
 }
 
 .welcome-text {
    color: #5f604b;
    font-size: 15px;
    font-weight: 600;
-   padding: 8px 12px;
-   border-radius: 20px;
+   padding: 8px 14px;
+   border-radius: 8px;
    border: 1.5px solid #5f604b;
    transition: all 0.2s;
    user-select: none;
+   display: inline-block;
 }
 
 .profile-menu:hover .welcome-text {
@@ -123,21 +104,24 @@ div .container_12 {
    color: #fff;
 }
 
+/* Hidden by default — shows on hover */
 .dropdown-menu {
+   display: none;
    position: absolute;
    right: 0;
-   top: 100%;
+   top: calc(100% + 4px);
    background: #fff;
    border-radius: 10px;
    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
    min-width: 200px;
    z-index: 999;
    padding: 8px 0;
-   margin-top: 4px;
+   list-style: none;
 }
 
-.dropdown-menu li {
-   padding: 0 !important;
+/* Show on hover — CSS only, no JS needed */
+.profile-menu:hover .dropdown-menu {
+   display: block;
 }
 
 .dropdown-email {
@@ -147,6 +131,10 @@ div .container_12 {
    color: #7a7a7a;
    border-bottom: 1px solid #f0f0f0;
    cursor: default;
+}
+
+.dropdown-menu li {
+   padding: 0 !important;
 }
 
 .dropdown-menu li a {

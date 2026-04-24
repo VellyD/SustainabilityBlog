@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/authContext";
 import "./header.css";
 
 export const Header = () => {
   const { user } = useAuthContext();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const userView = (
     <>
@@ -14,22 +12,16 @@ export const Header = () => {
           + Add Swap
         </Link>
       </li>
-      <li
-        className="profile-menu"
-        onMouseEnter={() => setDropdownOpen(true)}
-        onMouseLeave={() => setDropdownOpen(false)}
-      >
+      <li className="profile-menu">
         <span className="welcome-text">{user.email.split("@")[0]} ▾</span>
-        {dropdownOpen && (
-          <ul className="dropdown-menu">
-            <li>
-              <span className="dropdown-email">{user.email}</span>
-            </li>
-            <li>
-              <Link to="/logout">Logout</Link>
-            </li>
-          </ul>
-        )}
+        <ul className="dropdown-menu">
+          <li>
+            <span className="dropdown-email">{user.email}</span>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
+          </li>
+        </ul>
       </li>
     </>
   );
