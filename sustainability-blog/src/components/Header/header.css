@@ -11,22 +11,13 @@
    padding: 0 40px;
    display: flex;
    justify-content: center;
-   position: relative;
-   /* needed for absolute positioning */
 }
 
-/* Wrapper for positioning */
-.nav-wrapper {
-   position: relative;
-   width: 100%;
-}
-
-/* ── NAV ── */
 .sf-menu {
    display: flex !important;
    flex-direction: row;
    align-items: center;
-   justify-content: space-between;
+   justify-content: center;
    list-style: none;
    padding: 12px 0;
    margin: 0;
@@ -65,14 +56,14 @@
 
 .slogan-message {
    text-align: center;
-   font-size: 24px;
+   font-size: 16px;
    color: #e7e6d4;
    padding-bottom: 40px;
    font-style: italic;
    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-
+/* ── ADD SWAP BUTTON ── */
 .add-swap-btn {
    background-color: #5f604b !important;
    color: #fff !important;
@@ -89,37 +80,36 @@
    color: #fff !important;
 }
 
-/* ── PROFILE DROPDOWN (CLICK-BASED) ── */
+/* ── PROFILE DROPDOWN — CSS only, no JS needed ── */
 .profile-menu {
    position: relative;
+   cursor: pointer;
    list-style: none;
 }
 
-/* Button style */
 .welcome-text {
-   background: none;
-   border: 1.5px solid #5f604b;
    color: #5f604b;
    font-size: 15px;
    font-weight: 600;
    padding: 8px 14px;
    border-radius: 8px;
+   border: 1.5px solid #5f604b;
    transition: all 0.2s;
-   cursor: pointer;
+   user-select: none;
+   display: inline-block;
 }
 
-/* Hover effect stays */
-.welcome-text:hover {
+.profile-menu:hover .welcome-text {
    background-color: #5f604b;
    color: #fff;
 }
 
-/* Dropdown hidden by default */
+/* Hidden by default — shows on hover */
 .dropdown-menu {
    display: none;
    position: absolute;
    right: 0;
-   top: calc(100% + 6px);
+   top: calc(100% + 4px);
    background: #fff;
    border-radius: 10px;
    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -129,8 +119,8 @@
    list-style: none;
 }
 
-/* Show ONLY when React adds "open" */
-.profile-menu.open .dropdown-menu {
+/* Show on hover — CSS only, no JS needed */
+.profile-menu:hover .dropdown-menu {
    display: block;
 }
 
@@ -159,3 +149,15 @@
    background-color: #f3f2e9;
    color: #ce9f56 !important;
 }
+
+.nav-wrapper {
+   position: relative;
+}
+
+/* Position button top-right */
+.add-swap-container {
+   position: absolute;
+   right: 40px;
+   /* match container padding */
+   top: 50%;
+   transform: translateY(-50%);
